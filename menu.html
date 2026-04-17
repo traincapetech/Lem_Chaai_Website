@@ -3,236 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Lemchaai</title>
-    <meta name="description" content="Browse Lemchaai's complete menu featuring teas, coffee, momos, noodles, parathas, and more. Order directly via WhatsApp for quick delivery.">
-    <meta name="keywords" content="Lemchaai menu, tea menu, momos menu, food menu, WhatsApp order, restaurant menu">
-    <!-- Load non-critical CSS asynchronously -->
-    <link rel="preload" href="styles-optimized.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles-optimized.css"></noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"></noscript>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    <title>Full Menu | LemChaai.com</title>
+    
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#C04000',
+                        masala: '#B85D19', 
+                        sage: '#8A9A5B',   
+                        cream: '#FFFDD0',  
+                        dark: '#1a1a1a',
+                        cardbg: '#fffaed',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Navbar Component Container -->
-    <div id="navbar-container"></div>
+<body class="bg-cream text-dark font-sans antialiased overflow-x-hidden pt-24">
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>Our Menu</h1>
-                <p>Delicious teas, snacks & more</p>
+    <!-- Navbar Minimal -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 py-4 bg-cream shadow-md border-b border-terracotta/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="gallery/logo.png" alt="LemChaai Logo" class="h-20 w-auto object-contain drop-shadow-md scale-110 origin-left">
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-dark hover:text-terracotta transition-colors font-medium"><i class="fa-solid fa-arrow-left mr-2"></i> Back to Home</a>
+            </div>
+            <a href="index.html#order" class="bg-masala hover:bg-terracotta text-cream px-6 py-2 rounded-full font-semibold transition-transform hover:-translate-y-0.5 shadow-lg shadow-masala/30">Order Now</a>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <section class="py-12 bg-cardbg border-b border-terracotta/10 text-center fade-in-up visible">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="font-serif text-5xl font-bold text-dark mb-4 drop-shadow-sm">The Full Menu</h1>
+            <p class="text-dark/70 text-lg">Explore our extensive range of Momolicious delights, Fast Food Favorites, and Signature Combos.</p>
+        </div>
+    </section>
+
+    <!-- Menu Sections -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+
+        <!-- MOMOLICIOUS CATEGORY -->
+        <section class="fade-in-up visible">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="h-1 flex-grow bg-masala/20"></div>
+                <h2 class="font-serif text-4xl font-bold text-terracotta tracking-wide uppercase"><i class="fa-solid fa-fire text-masala mr-2"></i> Momolicious</h2>
+                <div class="h-1 flex-grow bg-masala/20"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Steamed Momos -->
+                <div class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative group hover:-translate-y-1 transition-all">
+                    <img src="gallery/Lem_Chaai_Steamed_Momos.png" alt="Steamed Momos" class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end mb-4 border-b-2 border-masala/10 pb-2">
+                        <h3 class="font-bold text-xl text-masala">Steamed Momos</h3>
+                        <div class="text-right leading-none"><span class="text-xs text-sage font-bold uppercase tracking-[0.2em]">H / F</span><br><span class="text-[9px] text-masala/50">5Pcs &nbsp; 10Pcs</span></div>
+                    </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-between border-b border-masala/10 pb-1 items-center"><span>Veg Momos</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">80 / 150</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Momos" data-price-half="80" data-price-full="150"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between border-b border-masala/10 pb-1 items-center"><span>Paneer Momos</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">100 / 180</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer Momos" data-price-half="100" data-price-full="180"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between pb-1 items-center"><span>Spl. Sooji Momos</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">120 / 200</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Spl. Sooji Momos" data-price-half="120" data-price-full="200"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
+                </div>
+                
+                <!-- Gravy Momos -->
+                <div class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative group hover:-translate-y-1 transition-all">
+                    <img src="gallery/gravymosmos.png" alt="Gravy Momos" class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end mb-4 border-b-2 border-masala/10 pb-2">
+                        <h3 class="font-bold text-xl text-masala">Gravy Momos</h3>
+                        <div class="text-right leading-none"><span class="text-xs text-sage font-bold uppercase tracking-[0.2em]">H / F</span><br><span class="text-[9px] text-masala/50">5Pcs &nbsp; 10Pcs</span></div>
+                    </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-between border-b border-masala/10 pb-1 items-center"><span>Veg Gravy Momos</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">140 / 230</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Gravy Momos" data-price-half="140" data-price-full="230"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between pb-1 items-center"><span>Paneer Gravy Momos</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">160 / 260</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer Gravy Momos" data-price-half="160" data-price-full="260"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
+                </div>
+
+                <!-- Fried Momos -->
+                <div class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative group hover:-translate-y-1 transition-all">
+                    <img src="gallery/chicken_fried_momos.webp" alt="Fried Momos" class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end mb-4 border-b-2 border-masala/10 pb-2">
+                        <h3 class="font-bold text-xl text-masala">Fried Momos</h3>
+                        <div class="text-right leading-none"><span class="text-xs text-sage font-bold uppercase tracking-[0.2em]">H / F</span><br><span class="text-[9px] text-masala/50">5Pcs &nbsp; 10Pcs</span></div>
+                    </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-between border-b border-masala/10 pb-1 items-center"><span>Veg Fried Momos</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">100 / 180</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Fried Momos" data-price-half="100" data-price-full="180"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between pb-1 items-center"><span>Paneer Fried Momos</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">120 / 200</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer Fried Momos" data-price-half="120" data-price-full="200"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
+                </div>
+
+                <!-- Kurkure Momos -->
+                <div class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative group hover:-translate-y-1 transition-all">
+                    <img src="gallery/kurkure-momos-main.jpg" alt="Kurkure Momos" class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end mb-4 border-b-2 border-masala/10 pb-2">
+                        <h3 class="font-bold text-xl text-masala">Kurkure Momos</h3>
+                        <div class="text-right leading-none"><span class="text-xs text-sage font-bold uppercase tracking-[0.2em]">H / F</span><br><span class="text-[9px] text-masala/50">5Pcs &nbsp; 10Pcs</span></div>
+                    </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-between border-b border-masala/10 pb-1 items-center"><span>Veg Kurkure Momos</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">120 / 200</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Kurkure Momos" data-price-half="120" data-price-full="200"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between pb-1 items-center"><span>Paneer Kurkure Momos</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">140 / 220</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer Kurkure Momos" data-price-half="140" data-price-full="220"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section class="menu-content">
-            <div class="container">
-                <div class="menu-category">
-                    <h2><i class="fas fa-coffee"></i> Tea & Coffee</h2>
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🍋 Lemon Tea</h3>
-                                <p>Refreshing tea with fresh lemon</p>
-                            </div>
-                            <div class="item-price">
-                              
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Lemon%20Tea" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🥛 Milk Tea</h3>
-                                <p>Classic milky tea</p>
-                            </div>
-                            <div class="item-price">
-                           
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Milk%20Tea" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>☕ Coffee</h3>
-                                <p>Freshly brewed coffee</p>
-                            </div>
-                            <div class="item-price">
-                              
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Coffee" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🌿 Green Tea</h3>
-                                <p>Healthy green tea</p>
-                            </div>
-                            <div class="item-price">
-                        
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Green%20Tea" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🥤 Masala Tea</h3>
-                                <p>Spiced Indian tea</p>
-                            </div>
-                            <div class="item-price">
-                              
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Masala%20Tea" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🧊 Ice Tea</h3>
-                                <p>Cool refreshing ice tea</p>
-                            </div>
-                            <div class="item-price">
-                           
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Ice%20Tea" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
+        <!-- FAST FOOD FAVORITES -->
+        <section class="fade-in-up visible">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="h-1 flex-grow bg-masala/20"></div>
+                <h2 class="font-serif text-4xl font-bold text-terracotta tracking-wide uppercase"><i class="fa-solid fa-burger text-masala mr-2"></i> Fast Food & Snacks</h2>
+                <div class="h-1 flex-grow bg-masala/20"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Starters, Fries -->
+                <div class="bg-cardbg rounded-3xl p-8 shadow-xl border border-terracotta/10">
+                    <img src="gallery/French-Fries-Cover-Image.jpg" alt="Starters & Fries" class="w-full h-40 object-cover rounded-xl mb-6 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end border-b-2 border-masala/30 mb-4 pb-2">
+                        <h3 class="font-bold text-2xl text-terracotta">Starters & Fries</h3>
+                        <span class="text-xs text-masala/70 font-bold uppercase tracking-widest">H / F</span>
                     </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-between items-center"><span class="font-medium">French Fries</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">70 / 150</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="French Fries" data-price-half="70" data-price-full="150"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Peri Peri Fries</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">90 / 170</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Peri Peri Fries" data-price-half="90" data-price-full="170"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Chilli Potato</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">70 / 150</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Chilli Potato" data-price-half="70" data-price-full="150"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Honey Chilli Potato</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">90 / 170</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Honey Chilli Potato" data-price-half="90" data-price-full="170"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="h-px bg-masala/20 my-2"></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Manchurian</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">140 / 220</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Manchurian" data-price-half="140" data-price-full="220"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Chilly Paneer</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">170 / 300</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Chilly Paneer" data-price-half="170" data-price-full="300"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium flex flex-col">Vada Pav <span class="text-[9px] -mt-1 text-masala/60 font-semibold">(1Pc / 2Pcs)</span></span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">80 / 150</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Vada Pav (1Pc / 2Pcs)" data-price-half="80" data-price-full="150"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
+                </div>
+                
+                <!-- Burger, Sandwich & Rolls -->
+                <div class="bg-cardbg rounded-3xl p-8 shadow-xl border border-terracotta/10 flex flex-col">
+                    <img src="gallery/menu_burger_1776338384163.png" alt="Burgers & Rolls" class="w-full h-40 object-cover rounded-xl mb-6 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end border-b-2 border-masala/30 mb-4 pb-2">
+                        <h3 class="font-bold text-2xl text-terracotta">Burgers, Rolls & Poha</h3>
+                    </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Burger</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">80/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Burger" data-price-half="80" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Paneer / Cheese Burger</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">100/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer / Cheese Burger" data-price-half="100" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Paneer & Cheese Burger</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">130/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer & Cheese Burger" data-price-half="130" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="h-px bg-masala/20 my-2"></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Sandwich</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">90/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Sandwich" data-price-half="90" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Cheese/Paneer Sandwich</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">120/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Cheese/Paneer Sandwich" data-price-half="120" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Cheese & Paneer Sandwich</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">130/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Cheese & Paneer Sandwich" data-price-half="130" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="h-px bg-masala/20 my-2"></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Spring Roll</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">120/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Spring Roll" data-price-half="120" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Kurkure Roll</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">150/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Kurkure Roll" data-price-half="150" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="h-px bg-masala/20 my-2 relative"></li>
+                        <li class="flex justify-end -mt-3"><span class="text-[9px] text-masala/70 font-bold uppercase tracking-widest bg-cardbg px-2">H / F</span></li>
+                        <li class="flex justify-between items-center -mt-2"><span class="font-medium">Veg Poha</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">90 / 160</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Poha" data-price-half="90" data-price-full="160"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
                 </div>
 
-                <div class="menu-category">
-                    <h2><i class="fas fa-utensils"></i> Snacks</h2>
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🥟 Momos (Steamed)</h3>
-                                <p>Fresh steamed momos with sauce</p>
-                            </div>
-                            <div class="item-price">
-                                
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Momos%20(Steamed)" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🥟 Momos (Fried)</h3>
-                                <p>Crispy fried momos</p>
-                            </div>
-                            <div class="item-price">
-                          
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Momos%20(Fried)" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🍜 Noodles</h3>
-                                <p>Fresh vegetable noodles</p>
-                            </div>
-                            <div class="item-price">
-                               
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Noodles" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🍝 Maggie</h3>
-                                <p>Instant noodles with vegetables</p>
-                            </div>
-                            <div class="item-price">
-                            
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Maggie" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🍟 French Fries</h3>
-                                <p>Crispy golden fries</p>
-                            </div>
-                            <div class="item-price">
-                               
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20French%20Fries" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🥨 Samosa</h3>
-                                <p>Spiced potato samosa</p>
-                            </div>
-                            <div class="item-price">
-                     
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Samosa" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
+                <!-- Pizza & Pasta -->
+                <div class="bg-cardbg rounded-3xl p-8 shadow-xl border border-terracotta/10">
+                    <img src="gallery/menu_pizza_1776338420506.png" alt="Pizza & Pasta" class="w-full h-40 object-cover rounded-xl mb-6 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end border-b-2 border-masala/30 mb-4 pb-2 relative">
+                        <h3 class="font-bold text-2xl text-terracotta">Pizza & Pasta</h3>
                     </div>
-                </div>
-
-                <div class="menu-category">
-                    <h2><i class="fas fa-bread-slice"></i> Breads & Rolls</h2>
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🥞 Paratha</h3>
-                                <p>Fresh stuffed paratha</p>
-                            </div>
-                            <div class="item-price">
-                              
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Paratha" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🌯 Veg Roll</h3>
-                                <p>Vegetable roll with fresh ingredients</p>
-                            </div>
-                            <div class="item-price">
-                               
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Veg%20Roll" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🥙 Paneer Roll</h3>
-                                <p>Paneer roll with vegetables</p>
-                            </div>
-                            <div class="item-price">
-                              
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Egg%20Roll" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🍕 Pizza Slice</h3>
-                                <p>Fresh pizza slice</p>
-                            </div>
-                            <div class="item-price">
-                             
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Pizza%20Slice" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🥖 Garlic Bread</h3>
-                                <p>Toasted garlic bread</p>
-                            </div>
-                            <div class="item-price">
-                               
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Garlic%20Bread" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>🥪 Sandwich</h3>
-                                <p>Fresh vegetable sandwich</p>
-                            </div>
-                            <div class="item-price">
-                              
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Sandwich" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-end -mb-2"><span class="text-[9px] text-masala/70 font-bold uppercase tracking-widest">M</span></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Classic Pizza</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">130/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Classic Pizza" data-price-half="130" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Sweet Corn Pizza</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">140/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Sweet Corn Pizza" data-price-half="140" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Margherita Pizza</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">150/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Margherita Pizza" data-price-half="150" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Paneer Cheese Pizza</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">160/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer Cheese Pizza" data-price-half="160" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="h-px bg-masala/20 my-2"></li>
+                        <li class="flex justify-end -mb-2"><span class="text-[9px] text-masala/70 font-bold uppercase tracking-widest">H / F</span></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Red Sauce Pasta</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">140 / 230</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Red Sauce Pasta" data-price-half="140" data-price-full="230"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">White Sauce Pasta</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">160 / 260</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="White Sauce Pasta" data-price-half="160" data-price-full="260"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Mix Sauce Pasta</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">170 / 280</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Mix Sauce Pasta" data-price-half="170" data-price-full="280"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
                 </div>
             </div>
         </section>
+
+        <!-- RICE, NOODLES & MAGGIE -->
+        <section class="fade-in-up visible">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="h-1 flex-grow bg-masala/20"></div>
+                <h2 class="font-serif text-4xl font-bold text-terracotta tracking-wide uppercase"><i class="fa-solid fa-bowl-rice text-masala mr-2"></i> Rice, Noodles & Maggie</h2>
+                <div class="h-1 flex-grow bg-masala/20"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Rice -->
+                <div class="bg-cardbg rounded-3xl p-8 shadow-xl border border-terracotta/10">
+                    <img src="gallery/201288abe7d371390b83c1bdda9fe436.jpg" alt="Rice Special" class="w-full h-40 object-cover rounded-xl mb-6 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end border-b-2 border-masala/30 mb-4 pb-2">
+                        <h3 class="font-bold text-2xl text-terracotta">Rice Special</h3>
+                        <span class="text-xs text-masala/70 font-bold uppercase tracking-widest">H / F</span>
+                    </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Fried Rice</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">100 / 180</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Fried Rice" data-price-half="100" data-price-full="180"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Chilly Garlic Fried Rice</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">120 / 200</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Chilly Garlic Fried Rice" data-price-half="120" data-price-full="200"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Paneer Fried Rice</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">130 / 220</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer Fried Rice" data-price-half="130" data-price-full="220"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Hakka Fried Rice</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">130 / 220</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Hakka Fried Rice" data-price-half="130" data-price-full="220"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Singapuri Fried Rice</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">160 / 240</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Singapuri Fried Rice" data-price-half="160" data-price-full="240"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
+                </div>
+                
+                <!-- Noodles -->
+                <div class="bg-cardbg rounded-3xl p-8 shadow-xl border border-terracotta/10">
+                    <img src="gallery/menu_noodles_1776338435672.png" alt="Noodles" class="w-full h-40 object-cover rounded-xl mb-6 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end border-b-2 border-masala/30 mb-4 pb-2">
+                        <h3 class="font-bold text-2xl text-terracotta">Noodles</h3>
+                        <span class="text-xs text-masala/70 font-bold uppercase tracking-widest">H / F</span>
+                    </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Noodles</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">100 / 150</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Noodles" data-price-half="100" data-price-full="150"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Garlic Noodles</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">120 / 200</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Garlic Noodles" data-price-half="120" data-price-full="200"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Paneer Noodles</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">140 / 220</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer Noodles" data-price-half="140" data-price-full="220"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Hakka Noodles</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">140 / 220</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Hakka Noodles" data-price-half="140" data-price-full="220"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Singapuri Noodles</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">160 / 240</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Singapuri Noodles" data-price-half="160" data-price-full="240"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
+                </div>
+
+                <!-- Maggie -->
+                <div class="bg-cardbg rounded-3xl p-8 shadow-xl border border-terracotta/10">
+                    <img src="gallery/Lem_Chaai_Maggie.png" alt="Maggie" class="w-full h-40 object-cover rounded-xl mb-6 shadow-sm border border-masala/10">
+                    <div class="flex justify-between items-end border-b-2 border-masala/30 mb-4 pb-2">
+                        <h3 class="font-bold text-2xl text-terracotta">Maggie</h3>
+                    </div>
+                    <ul class="text-dark/80 text-sm space-y-3">
+                        <li class="flex justify-between items-center"><span class="font-medium">Plain Maggie</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">70/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Plain Maggie" data-price-half="70" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Masala Maggie</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">90/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Masala Maggie" data-price-half="90" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Veg Butter Maggie</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">100/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Veg Butter Maggie" data-price-half="100" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                        <li class="flex justify-between items-center"><span class="font-medium">Paneer Masala Maggie</span> <div class="flex items-center gap-3"><span class="font-bold text-masala min-w-[80px] text-right whitespace-nowrap">120/-</span> <button class="add-to-cart-btn bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-cream w-6 h-6 rounded flex flex-shrink-0 items-center justify-center transition-colors shadow-sm border border-terracotta/20" data-name="Paneer Masala Maggie" data-price-half="120" data-price-full="-"><i class="fa-solid fa-plus text-xs"></i></button></div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <div class="text-center pt-8 pb-16 fade-in-up">
+            <a href="https://wa.me/917838000475?text=Hello%20LemChaai!" target="_blank" class="inline-flex items-center gap-3 bg-terracotta hover:bg-masala text-cream px-10 py-5 rounded-full font-bold text-xl shadow-xl transition-transform hover:-translate-y-1">
+                <i class="fa-solid fa-receipt"></i> Place Your Order Now
+            </a>
+        </div>
+
     </main>
 
-    <!-- Footer Component Container -->
-    <div id="footer-container"></div>
+    <!-- Footer Simple -->
+    <footer class="bg-dark text-cream border-t border-masala/30 py-8 text-center">
+        <p class="text-white/60 text-sm">&copy; 2025 LemChaai.com. All Rights Reserved.</p>
+    </footer>
 
-    <script src="components.js" defer></script>
-    <script src="script.js" defer></script>
+    <!-- Floating Cart Button -->
+    <button id="floating-cart-btn" class="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 bg-masala hover:bg-terracotta text-cream p-4 rounded-full shadow-2xl transition-transform hover:-translate-y-2 z-40 group">
+        <i class="fa-solid fa-cart-shopping text-2xl"></i>
+        <span id="cart-badge" class="absolute -top-2 -right-2 bg-cream text-terracotta font-bold text-xs w-6 h-6 rounded-full flex items-center justify-center shadow-md border-2 border-masala border-opacity-50">0</span>
+    </button>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar-overlay" class="fixed inset-0 bg-dark/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-cream z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-6 border-b border-masala/20 flex justify-between items-center bg-cardbg">
+            <h2 class="font-serif text-2xl font-bold text-terracotta"><i class="fa-solid fa-basket-shopping mr-2"></i> Your Order</h2>
+            <button id="close-cart-btn" class="text-dark/50 hover:text-terracotta text-2xl transition-colors"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div id="cart-items-container" class="flex-grow overflow-y-auto p-6 space-y-4">
+            <!-- Cart Items will be injected here via JS -->
+            <div class="text-center text-dark/50 italic mt-10" id="empty-cart-msg">Your cart is empty.</div>
+        </div>
+        
+        <div class="border-t border-masala/20 bg-cardbg p-6 space-y-4">
+            <div class="flex justify-between items-center font-bold text-lg text-dark">
+                <span>Total Amount:</span>
+                <span id="cart-total-price" class="text-masala">₹0</span>
+            </div>
+            <button id="whatsapp-checkout-btn" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white p-4 rounded-xl font-bold text-lg transition-transform shadow-lg hover:-translate-y-1 flex items-center justify-center gap-3">
+                <i class="fa-brands fa-whatsapp text-2xl"></i> Checkout via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Options Modal -->
+    <div id="options-modal-overlay" class="fixed inset-0 bg-dark/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="options-modal" class="bg-cardbg w-full max-w-sm rounded-[32px] shadow-2xl border border-terracotta/20 overflow-hidden transform scale-95 transition-transform duration-300">
+            <div class="bg-terracotta/10 p-6 flex justify-between items-start border-b border-masala/10">
+                <div>
+                    <h3 id="modal-item-name" class="font-sans font-bold text-xl text-dark mb-1">Item Name</h3>
+                    <p class="text-xs text-masala/70 font-semibold tracking-wider uppercase">Customize Order</p>
+                </div>
+                <button id="close-modal-btn" class="text-dark/50 hover:text-terracotta bg-cream w-8 h-8 rounded-full shadow-sm flex items-center justify-center transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="p-6 space-y-6">
+                <!-- Size Options -->
+                <div id="size-options-container" class="space-y-3">
+                    <label class="block text-sm font-bold text-dark mb-2">Select Size</label>
+                    <div class="flex gap-4">
+                        <label class="flex-1 cursor-pointer group">
+                            <input type="radio" name="item_size" value="Half" class="peer hidden" checked>
+                            <div class="border-2 border-masala/20 rounded-xl p-3 text-center peer-checked:border-terracotta peer-checked:bg-terracotta/5 transition-all">
+                                <span class="block font-bold text-dark group-hover:text-terracotta" id="modal-label-half">Half</span>
+                                <span class="block text-sm text-masala font-semibold" id="modal-price-half">₹80</span>
+                            </div>
+                        </label>
+                        <label class="flex-1 cursor-pointer group">
+                            <input type="radio" name="item_size" value="Full" class="peer hidden">
+                            <div class="border-2 border-masala/20 rounded-xl p-3 text-center peer-checked:border-terracotta peer-checked:bg-terracotta/5 transition-all">
+                                <span class="block font-bold text-dark group-hover:text-terracotta" id="modal-label-full">Full</span>
+                                <span class="block text-sm text-masala font-semibold" id="modal-price-full">₹150</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Single Price Display -->
+                <div id="single-price-container" class="hidden font-bold text-lg text-masala text-center p-3 border-2 border-terracotta/20 bg-terracotta/5 rounded-xl">
+                    ₹0
+                </div>
+
+                <!-- Quantity Options -->
+                <div>
+                    <label class="block text-sm font-bold text-dark mb-3">Quantity</label>
+                    <div class="flex items-center justify-between bg-cream border border-masala/20 rounded-xl p-2 max-w-[150px] mx-auto shadow-inner">
+                        <button id="qty-minus" class="w-10 h-10 rounded-lg hover:bg-terracotta/10 text-terracotta flex items-center justify-center transition-colors font-bold text-xl"><i class="fa-solid fa-minus text-sm"></i></button>
+                        <span id="qty-display" class="font-bold text-dark text-lg w-10 text-center">1</span>
+                        <button id="qty-plus" class="w-10 h-10 rounded-lg bg-terracotta/10 hover:bg-terracotta text-terracotta hover:text-cream flex items-center justify-center transition-colors font-bold text-xl"><i class="fa-solid fa-plus text-sm"></i></button>
+                    </div>
+                </div>
+                
+                <button id="add-to-cart-confirm" class="w-full bg-masala hover:bg-terracotta text-cream p-4 rounded-xl font-bold transition-transform shadow-lg hover:-translate-y-1">
+                    Add to Order <span id="modal-total-btn-price" class="ml-2 bg-cream/20 px-2 py-1 rounded text-sm">₹0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

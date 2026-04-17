@@ -1,0 +1,53 @@
+/* Custom Styling for LemChaai Bitezai Theme */
+
+/* Arched Frame for Modern Indian Architectural feel */
+.arched-frame {
+    border-radius: 200px 200px 0 0;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid #B85D19; /* Masala Amber border */
+}
+
+/* Hide scrollbar for horizontal sliders but keep functionality */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Animations Triggered by JavaScript */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tab Active State */
+.menu-tab.active {
+    background-color: #C04000; /* Terracotta */
+    color: #FFFDD0; /* Cream */
+    font-weight: 600;
+}
+.menu-tab {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Gradient text utility */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #C04000, #B85D19);
+}

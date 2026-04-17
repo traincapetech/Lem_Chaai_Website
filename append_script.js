@@ -1,136 +1,6 @@
-// Navigation & Mobile Menu
-const navbar = document.getElementById('navbar');
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-link');
+const fs = require('fs');
 
-// Sticky Navbar Background
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('shadow-md', 'bg-cream/95');
-        navbar.classList.remove('bg-cream/90');
-    } else {
-        navbar.classList.remove('shadow-md', 'bg-cream/95');
-        navbar.classList.add('bg-cream/90');
-    }
-});
-
-// Toggle Mobile Menu
-if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
-}
-
-// Close Mobile Menu on Link Click
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-    });
-});
-
-// Smooth Scroll for Hash Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-            // Adjust for navbar height
-            const headerOffset = 80;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-        }
-    });
-});
-
-// Scroll Reveal Animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.fade-in-up').forEach((el) => {
-    observer.observe(el);
-});
-
-// Menu Tabs Logic
-const tabBtns = document.querySelectorAll('.menu-tab');
-const tabPanes = document.querySelectorAll('.tab-pane');
-
-tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active from all buttons
-        tabBtns.forEach(b => {
-            b.classList.remove('active', 'bg-white', 'text-[#007D55]', 'shadow-lg');
-            b.classList.add('text-white/70');
-        });
-        
-        // Add active to clicked button
-        btn.classList.add('active', 'bg-white', 'text-[#007D55]', 'shadow-lg');
-        btn.classList.remove('text-white/70');
-
-        // Hide all panes
-        tabPanes.forEach(pane => {
-            pane.classList.add('hidden');
-        });
-
-        // Show target pane
-        const targetId = btn.getAttribute('data-target');
-        const targetPane = document.getElementById(targetId);
-        if(targetPane) {
-            targetPane.classList.remove('hidden');
-            
-            // Re-trigger animation for the items inside
-            targetPane.classList.remove('visible'); // If it had the class
-            // small delay to trigger reflow
-            setTimeout(() => {
-                 targetPane.classList.add('fade-in-up', 'visible');
-            }, 10);
-        }
-    });
-});
-
-// Initialize first tab
-if (tabBtns.length > 0) {
-    tabBtns[0].click();
-}
-
-// Testimonial Horizontal Slider Controls
-const slider = document.getElementById('testimonial-slider');
-const prevBtn = document.getElementById('slider-prev');
-const nextBtn = document.getElementById('slider-next');
-
-if (slider && prevBtn && nextBtn) {
-    // Get width of one card + gap (approx 400px)
-    const scrollAmount = 400;
-
-    nextBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
-
-    prevBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-}
-
-
+const jsContent = `
 /* =========================================
    CART & WHATSAPP INTEGRATION LOGIC
 ========================================= */
@@ -173,7 +43,11 @@ function updateCartUI() {
     if(cartBadge) cartBadge.innerText = totalItems;
     
     if(floatingCartBtn) {
-        floatingCartBtn.classList.remove('hidden');
+        if (totalItems > 0) {
+            floatingCartBtn.classList.remove('hidden');
+        } else {
+            floatingCartBtn.classList.add('hidden');
+        }
     }
 
     // Render Sidebar Items
@@ -194,21 +68,20 @@ function updateCartUI() {
                 
                 const itemEl = document.createElement('div');
                 itemEl.className = 'flex justify-between items-center bg-cardbg border border-masala/10 p-3 rounded-xl shadow-sm';
-                itemEl.innerHTML = `
+                itemEl.innerHTML = \`
                     <div class="flex-1 pr-2">
-                        <h4 class="font-bold text-dark text-sm">${item.name}</h4>
-                        ${item.size ? `<span class="text-xs text-masala/70 font-semibold uppercase">${item.size}</span>` : ''}
-                        <div class="text-xs text-terracotta font-bold mt-1">₹${item.price}</div>
+                        <h4 class="font-bold text-dark text-sm">\${item.name}</h4>
+                        \${item.size ? \`<span class="text-xs text-masala/70 font-semibold uppercase">\${item.size}</span>\` : ''}
+                        <div class="text-xs text-terracotta font-bold mt-1">₹\${item.price}</div>
                     </div>
                     <div class="flex items-center gap-3">
                         <div class="flex items-center bg-cream rounded-md border border-masala/20">
-                            <button class="w-6 h-6 flex items-center justify-center text-terracotta hover:bg-terracotta hover:text-cream transition-colors rounded-l-md" onclick="updateItemQuantity(${index}, -1)"><i class="fa-solid fa-minus text-[10px]"></i></button>
-                            <span class="w-6 text-center font-bold text-sm text-dark">${item.quantity}</span>
-                            <button class="w-6 h-6 flex items-center justify-center text-terracotta hover:bg-terracotta hover:text-cream transition-colors rounded-r-md" onclick="updateItemQuantity(${index}, 1)"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                            <button class="w-6 h-6 flex items-center justify-center text-terracotta hover:bg-terracotta hover:text-cream transition-colors rounded-l-md" onclick="updateItemQuantity(\${index}, -1)"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                            <span class="w-6 text-center font-bold text-sm text-dark">\${item.quantity}</span>
+                            <button class="w-6 h-6 flex items-center justify-center text-terracotta hover:bg-terracotta hover:text-cream transition-colors rounded-r-md" onclick="updateItemQuantity(\${index}, 1)"><i class="fa-solid fa-plus text-[10px]"></i></button>
                         </div>
-                        <button class="w-8 h-8 flex items-center justify-center text-masala/50 hover:text-terracotta transition-colors" onclick="removeItemFromCart(${index})"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
-                `;
+                \`;
                 cartItemsContainer.appendChild(itemEl);
             });
         }
@@ -223,11 +96,6 @@ window.updateItemQuantity = function(index, delta) {
     } else {
         cart[index].quantity += delta;
     }
-    saveCart();
-};
-
-window.removeItemFromCart = function(index) {
-    cart.splice(index, 1);
     saveCart();
 };
 
@@ -381,19 +249,19 @@ if (whatsappCheckoutBtn) {
     whatsappCheckoutBtn.addEventListener('click', () => {
         if(cart.length === 0) return;
         
-        let message = "Hello LemChaai! I would like to place an order:\n\n";
+        let message = "Hello LemChaai! I would like to place an order:\\n\\n";
         let total = 0;
         
         cart.forEach(item => {
-            const sizeStr = item.size ? ` (${item.size})` : "";
+            const sizeStr = item.size ? \` (\${item.size})\` : "";
             const itemTotal = item.price * item.quantity;
-            message += `▪ ${item.quantity}x ${item.name}${sizeStr} - ₹${itemTotal}\n`;
+            message += \`▪ \${item.quantity}x \${item.name}\${sizeStr} - ₹\${itemTotal}\\n\`;
             total += itemTotal;
         });
         
-        message += `\nTotal Amount: ₹${total}\n\nPlease confirm my order.`;
+        message += \`\\nTotal Amount: ₹\${total}\\n\\nPlease confirm my order.\`;
         
-        const waUrl = `https://wa.me/919953975300?text=${encodeURIComponent(message)}`;
+        const waUrl = \`https://wa.me/919953975300?text=\${encodeURIComponent(message)}\`;
         window.open(waUrl, '_blank');
         
         // Optional: clear cart after ordering? 
@@ -404,3 +272,14 @@ if (whatsappCheckoutBtn) {
 
 // Init
 updateCartUI();
+`;
+
+let currentScript = fs.readFileSync('d:/lem_chai/script.js', 'utf8');
+
+// simple idempotency check
+if (!currentScript.includes('CART & WHATSAPP INTEGRATION LOGIC')) {
+    fs.appendFileSync('d:/lem_chai/script.js', '\n' + jsContent);
+    console.log('Successfully appended cart script');
+} else {
+    console.log('Script already contains cart logic');
+}
