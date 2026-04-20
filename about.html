@@ -1,105 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Lemchaai</title>
-    <meta name="description" content="Learn about Lemchaai's story, our passion for fresh teas and authentic snacks. Discover our specialties including lemon tea, momos, and cozy atmosphere.">
-    <meta name="keywords" content="about Lemchaai, tea shop story, fresh ingredients, authentic flavors, lemon tea, momos">
-    <!-- Load non-critical CSS asynchronously -->
-    <link rel="preload" href="styles-optimized.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles-optimized.css"></noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"></noscript>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    <title>LemChaai.com - A Taste of New Bharat</title>
+    <meta name="description"
+        content="LemChaai offers handcrafted teas, refreshing beverages, and delicious fast food. A Taste of New Bharat.">
+
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Tailwind CSS (via CDN) with Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#C04000',
+                        masala: '#B85D19',
+                        sage: '#8A9A5B',
+                        cream: '#FFFDD0',
+                        dark: '#1a1a1a',
+                        cardbg: '#fffaed', // slightly lighter cream for cards
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Navbar Component Container -->
+
+<body class="bg-cream text-dark font-sans antialiased overflow-x-hidden">
     <div id="navbar-container"></div>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>About Lemchaai</h1>
-                <p>Our Story & Passion</p>
-            </div>
-        </section>
-
-        <section class="about-content">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-text">
-                        <h2>Our Story</h2>
-                        <p>Lemchaai started with a simple dream - to bring authentic flavors and warm hospitality to our community. Founded with love and passion for good food, we've been serving refreshing teas and delicious snacks that bring people together.</p>
-                        
-                        <p>What began as a small venture has grown into a beloved local spot where friends meet, families gather, and everyone finds comfort in our carefully crafted menu.</p>
-                        
-                        <h3>Our Specialty</h3>
-                        <div class="specialty-list">
-                            <div class="specialty-item">
-                                <i class="fas fa-coffee"></i>
-                                <div>
-                                    <h4>Lemon Tea</h4>
-                                    <p>Our signature refreshing lemon tea made with fresh lemons and premium tea leaves</p>
-                                </div>
-                            </div>
-                            <div class="specialty-item">
-                                <i class="fas fa-drumstick-bite"></i>
-                                <div>
-                                    <h4>Momos</h4>
-                                    <p>Handcrafted momos with fresh fillings and authentic Himalayan flavors</p>
-                                </div>
-                            </div>
-                            <div class="specialty-item">
-                                <i class="fas fa-utensils"></i>
-                                <div>
-                                    <h4>Quick Bites</h4>
-                                    <p>Fresh noodles, maggie, parathas, and rolls prepared to perfection</p>
-                                </div>
-                            </div>
-                        </div>
+    <main class="pt-32">
+        <!-- About Our Story Section -->
+        <section id="about" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                <!-- Left: Text -->
+                <div class="lg:w-1/2 fade-in-up">
+                    <p class="text-terracotta font-semibold tracking-wider uppercase mb-2">Our Story</p>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-dark leading-tight">
+                        Where Tradition Meets Taste
+                    </h2>
+                    <div class="space-y-4 text-dark/80 mb-8 border-l-4 border-sage pl-6">
+                        <p>
+                            At LemChaai, we believe in the power of great Tea like "Chai Jaisa Aap Chahe" with beverages and
+                            high quality fast food.
+                        </p>
+                        <p>
+                            Our journey began with a passion for authentic customized teas and a vision to offer
+                            high-quality snacks that fit every lifestyle. What started as a small roadside tea stall with a
+                            big dream has grown into a local favorite.
+                        </p>
+                        <p>
+                            Today, we're proud to serve a menu that blends traditional flavors with modern twists — all
+                            prepared fresh, just for you. We're about community, comfort, and creating a space where anyone
+                            can unwind.
+                        </p>
                     </div>
-                    <div class="about-image">
-                        <div class="image-placeholder">
-                            <img src="gallery/Lem_Chaai_Shop_Interior.png" alt="Lemchaai Shop Interior" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px;" loading="lazy">
+
+                    <h3 class="font-serif text-2xl font-bold mb-6 text-masala">Why Choose Us?</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-sage mt-1"></i>
+                            <span class="font-medium text-dark/90">Premium Tea Leaves & Ingredients</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-sage mt-1"></i>
+                            <span class="font-medium text-dark/90">Hygienic, Fast, Friendly Service</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-sage mt-1"></i>
+                            <span class="font-medium text-dark/90">Vegetarian & Vegan Options</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check-circle text-sage mt-1"></i>
+                            <span class="font-medium text-dark/90">Perfect for Hangouts & Takeaway</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="values-section">
-                    <h2>Our Values</h2>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <i class="fas fa-leaf"></i>
-                            <h3>Freshness</h3>
-                            <p>We use only the freshest ingredients sourced daily</p>
-                        </div>
-                        <div class="value-card">
-                            <i class="fas fa-heart"></i>
-                            <h3>Quality</h3>
-                            <p>Every item is prepared with attention to detail and quality</p>
-                        </div>
-                        <div class="value-card">
-                            <i class="fas fa-users"></i>
-                            <h3>Community</h3>
-                            <p>We believe in bringing people together through good food</p>
-                        </div>
-                        <div class="value-card">
-                            <i class="fas fa-smile"></i>
-                            <h3>Service</h3>
-                            <p>Warm hospitality and quick service for every customer</p>
-                        </div>
+                <!-- Right: Image -->
+                <div class="lg:w-1/2 w-full fade-in-up" style="transition-delay: 200ms;">
+                    <div
+                        class="relative w-full max-w-lg mx-auto aspect-square arched-frame bg-cardbg p-2 shadow-2xl shadow-masala/20">
+                        <img src="gallery/Lem_Chaai_Shop_Interior.png" alt="LemChaai Shop Interior"
+                            class="w-full h-full object-cover rounded-t-[190px] rounded-b-lg border border-masala/30">
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer Component Container -->
     <div id="footer-container"></div>
-
-    <script src="components.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="components.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

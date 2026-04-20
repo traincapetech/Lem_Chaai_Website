@@ -1,19 +1,38 @@
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <a href="index.html"><img src="gallery/logo.png" alt="LemChaai Logo" style="height: 48px; width: auto; object-fit: contain;"></a>
+    <nav id="navbar"
+        class="fixed w-full z-50 transition-all duration-300 py-4 bg-cream/90 backdrop-blur-md border-b border-terracotta/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="gallery/logo.png" alt="LemChaai Logo"
+                    class="h-20 w-auto object-contain drop-shadow-md scale-110 origin-left">
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-dark hover:text-terracotta transition-colors font-medium">Home</a>
+                <a href="about.html" class="text-dark hover:text-terracotta transition-colors font-medium">About</a>
+                <a href="index.html#menu" class="text-dark hover:text-terracotta transition-colors font-medium">Menu</a>
+                <a href="index.html#franchise" class="text-dark hover:text-terracotta transition-colors font-medium">Franchise</a>
+                <a href="contact.html" class="text-dark hover:text-terracotta transition-colors font-medium">Contact</a>
+                <a href="index.html#order"
+                    class="bg-masala hover:bg-terracotta text-cream px-6 py-2 rounded-full font-semibold transition-transform hover:-translate-y-0.5 shadow-lg shadow-masala/30">Order
+                    Now</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-terracotta text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-        <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link" data-page="index">Home</a></li>
-            <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
-            <li><a href="menu.html" class="nav-link" data-page="menu">Menu</a></li>
-            <li><a href="gallery.html" class="nav-link" data-page="gallery">Gallery</a></li>
-            <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-cream border-t border-terracotta/20 shadow-xl py-4 px-6 flex flex-col space-y-4">
+            <a href="index.html" class="mobile-link text-dark hover:text-terracotta font-medium">Home</a>
+            <a href="about.html" class="mobile-link text-dark hover:text-terracotta font-medium">About</a>
+            <a href="index.html#menu" class="mobile-link text-dark hover:text-terracotta font-medium">Menu</a>
+            <a href="index.html#franchise" class="mobile-link text-dark hover:text-terracotta font-medium">Franchise</a>
+            <a href="contact.html" class="mobile-link text-dark hover:text-terracotta font-medium">Contact</a>
+            <a href="index.html#order"
+                class="mobile-link bg-masala text-center text-cream px-6 py-3 rounded-full font-semibold">Order Now</a>
         </div>
-    </div>
-</nav>
+    </nav>

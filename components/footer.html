@@ -1,27 +1,98 @@
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>🍵 Lemchaai</h3>
-                <p>Refreshing Teas & Tasty Bites</p>
+    <footer class="bg-dark text-cream pt-20 pb-8 border-t-[12px] border-terracotta">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand & Map -->
+                <div class="lg:col-span-2">
+                    <a href="index.html" class="inline-block mb-6">
+                        <img src="gallery/logo.png" alt="LemChaai Logo" class="h-16 w-auto object-contain">
+                    </a>
+                    <p class="text-cream/70 mb-6 max-w-md">Brewed with Passion. Served with Care. Your go-to destination
+                        for handcrafted teas and a Taste of New Bharat.</p>
+
+                    <!-- Map Wrapper -->
+                    <div
+                        class="rounded-2xl overflow-hidden border border-cream/20 h-48 max-w-md ">
+                        <iframe
+                            src="https://maps.google.com/maps?q=Lem+Chaai,+Vijay+Enclave,+New+Delhi&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <!-- Fallback static text if iframe is invalid -->
+                        <div class="w-full h-full bg-cream/10 flex items-center justify-center absolute inset-0 -z-10">
+                            Map Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-serif text-xl font-bold text-terracotta mb-6">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html"
+                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Home</a></li>
+                        <li><a href="about.html"
+                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs text-sage"></i> About Us</a></li>
+                        <li><a href="index.html#menu"
+                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Menu</a></li>
+                        <li><a href="index.html#order"
+                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Order Online</a></li>
+                        <li><a href="index.html#franchise"
+                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Franchise</a></li>
+                        <li><a href="contact.html"
+                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-serif text-xl font-bold text-terracotta mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-cream/80">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-sage"></i>
+                            <span>RZ-A-1/16, Vijay Enclave, Main Palam Dabri Road, Dashrathpuri Metro Rd, near Rama Departmental Store, New Delhi, Delhi 110045</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-sage"></i>
+                            <a href="tel:9953975300" class="hover:text-terracotta transition-colors">+91 9953975300</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-sage"></i>
+                            <a href="mailto:lemchaaiindia@gmail.com"
+                                class="hover:text-terracotta transition-colors">lemchaaiindia@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-clock text-sage"></i>
+                            <span>9 AM – 10 PM (Everyday)</span>
+                        </li>
+                    </ul>
+
+                    <!-- Socials -->
+                    <div class="flex gap-4 mt-8">
+                        <a href="https://www.facebook.com/lemchaai"
+                            class="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-terracotta transition-colors"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/lemchaai/profilecard/?igsh=OG83emdpbTNwbjB4"
+                            class="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-terracotta transition-colors"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@lemchaai?si=oO7ghbP4OGCXf1KD"
+                            class="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-terracotta transition-colors"><i
+                                class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p><i class="fab fa-whatsapp"></i> WhatsApp Orders</p>
-                <p><i class="fas fa-phone"></i> +91 78380 00475</p>
+
+            <!-- Bottom Copyright -->
+            <div
+                class="pt-8 border-t border-cream/10 text-center flex flex-col md:flex-row justify-between items-center gap-4 text-cream/50 text-sm">
+                <p>&copy; 2026 lemchaai.com. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-cream transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-cream transition-colors">Terms of Service</a>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Lemchaai. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>

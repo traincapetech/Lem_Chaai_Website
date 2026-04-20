@@ -1,11 +1,10 @@
 // Navigation & Mobile Menu
-const navbar = document.getElementById('navbar');
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-link');
 
 // Sticky Navbar Background
 window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+    
     if (window.scrollY > 50) {
         navbar.classList.add('shadow-md', 'bg-cream/95');
         navbar.classList.remove('bg-cream/90');
@@ -13,20 +12,6 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('shadow-md', 'bg-cream/95');
         navbar.classList.add('bg-cream/90');
     }
-});
-
-// Toggle Mobile Menu
-if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
-}
-
-// Close Mobile Menu on Link Click
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-    });
 });
 
 // Smooth Scroll for Hash Links
@@ -376,29 +361,38 @@ if(addToCartBtns) {
     });
 }
 
-// WhatsApp Checkout
+// WhatsApp Checkout Logic
+function checkoutWhatsapp() {
+    if(cart.length === 0) {
+        alert("Your cart is empty! Please add some dishes first.");
+        return;
+    }
+    
+    let message = "Hello LemChaai! I would like to place an order:\n\n";
+    let total = 0;
+    
+    cart.forEach(item => {
+        const sizeStr = item.size ? ` (${item.size})` : "";
+        const itemTotal = item.price * item.quantity;
+        message += `▪ ${item.quantity}x ${item.name}${sizeStr} - ₹${itemTotal}\n`;
+        total += itemTotal;
+    });
+    
+    message += `\nTotal Amount: ₹${total}\n\nPlease confirm my order.`;
+    
+    const waUrl = `https://wa.me/919953975300?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, '_blank');
+}
+
 if (whatsappCheckoutBtn) {
-    whatsappCheckoutBtn.addEventListener('click', () => {
-        if(cart.length === 0) return;
-        
-        let message = "Hello LemChaai! I would like to place an order:\n\n";
-        let total = 0;
-        
-        cart.forEach(item => {
-            const sizeStr = item.size ? ` (${item.size})` : "";
-            const itemTotal = item.price * item.quantity;
-            message += `▪ ${item.quantity}x ${item.name}${sizeStr} - ₹${itemTotal}\n`;
-            total += itemTotal;
-        });
-        
-        message += `\nTotal Amount: ₹${total}\n\nPlease confirm my order.`;
-        
-        const waUrl = `https://wa.me/919953975300?text=${encodeURIComponent(message)}`;
-        window.open(waUrl, '_blank');
-        
-        // Optional: clear cart after ordering? 
-        // cart = [];
-        // saveCart();
+    whatsappCheckoutBtn.addEventListener('click', checkoutWhatsapp);
+}
+
+const placeOrderBtn = document.getElementById('place-order-btn');
+if (placeOrderBtn) {
+    placeOrderBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        checkoutWhatsapp();
     });
 }
 

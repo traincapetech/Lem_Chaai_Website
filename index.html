@@ -47,45 +47,8 @@
 
 <body class="bg-cream text-dark font-sans antialiased overflow-x-hidden">
 
-    <!-- Navbar -->
-    <nav id="navbar"
-        class="fixed w-full z-50 transition-all duration-300 py-4 bg-cream/90 backdrop-blur-md border-b border-terracotta/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-2">
-                <img src="gallery/logo.png" alt="LemChaai Logo"
-                    class="h-20 w-auto object-contain drop-shadow-md scale-110 origin-left">
-            </a>
-
-            <!-- Desktop Links -->
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-dark hover:text-terracotta transition-colors font-medium">Home</a>
-                <a href="#about" class="text-dark hover:text-terracotta transition-colors font-medium">About</a>
-                <a href="#menu" class="text-dark hover:text-terracotta transition-colors font-medium">Menu</a>
-                <a href="#franchise" class="text-dark hover:text-terracotta transition-colors font-medium">Franchise</a>
-                <a href="#contact" class="text-dark hover:text-terracotta transition-colors font-medium">Contact</a>
-                <a href="#order"
-                    class="bg-masala hover:bg-terracotta text-cream px-6 py-2 rounded-full font-semibold transition-transform hover:-translate-y-0.5 shadow-lg shadow-masala/30">Order
-                    Now</a>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-terracotta text-2xl focus:outline-none">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu"
-            class="hidden md:hidden absolute top-full left-0 w-full bg-cream border-t border-terracotta/20 shadow-xl py-4 px-6 flex flex-col space-y-4">
-            <a href="#home" class="mobile-link text-dark hover:text-terracotta font-medium">Home</a>
-            <a href="#about" class="mobile-link text-dark hover:text-terracotta font-medium">About</a>
-            <a href="#menu" class="mobile-link text-dark hover:text-terracotta font-medium">Menu</a>
-            <a href="#franchise" class="mobile-link text-dark hover:text-terracotta font-medium">Franchise</a>
-            <a href="#contact" class="mobile-link text-dark hover:text-terracotta font-medium">Contact</a>
-            <a href="#order"
-                class="mobile-link bg-masala text-center text-cream px-6 py-3 rounded-full font-semibold">Order Now</a>
-        </div>
-    </nav>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
 
     <!-- Hero Section -->
     <section id="home" class="pt-32 pb-20 lg:pt-40 lg:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -244,63 +207,7 @@
         </div>
     </section>
 
-    <!-- About Our Story Section -->
-    <section id="about" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
-            <!-- Left: Text -->
-            <div class="lg:w-1/2 fade-in-up">
-                <p class="text-terracotta font-semibold tracking-wider uppercase mb-2">Our Story</p>
-                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-dark leading-tight">
-                    Where Tradition Meets Taste
-                </h2>
-                <div class="space-y-4 text-dark/80 mb-8 border-l-4 border-sage pl-6">
-                    <p>
-                        At LemChaai, we believe in the power of great Tea like "Chai Jaisa Aap Chahe" with beverages and
-                        high quality fast food.
-                    </p>
-                    <p>
-                        Our journey began with a passion for authentic customized teas and a vision to offer
-                        high-quality snacks that fit every lifestyle. What started as a small roadside tea stall with a
-                        big dream has grown into a local favorite.
-                    </p>
-                    <p>
-                        Today, we're proud to serve a menu that blends traditional flavors with modern twists — all
-                        prepared fresh, just for you. We're about community, comfort, and creating a space where anyone
-                        can unwind.
-                    </p>
-                </div>
-
-                <h3 class="font-serif text-2xl font-bold mb-6 text-masala">Why Choose Us?</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-sage mt-1"></i>
-                        <span class="font-medium text-dark/90">Premium Tea Leaves & Ingredients</span>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-sage mt-1"></i>
-                        <span class="font-medium text-dark/90">Hygienic, Fast, Friendly Service</span>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-sage mt-1"></i>
-                        <span class="font-medium text-dark/90">Vegetarian & Vegan Options</span>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-sage mt-1"></i>
-                        <span class="font-medium text-dark/90">Perfect for Hangouts & Takeaway</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: Image -->
-            <div class="lg:w-1/2 w-full fade-in-up" style="transition-delay: 200ms;">
-                <div
-                    class="relative w-full max-w-lg mx-auto aspect-square arched-frame bg-cardbg p-2 shadow-2xl shadow-masala/20">
-                    <img src="gallery/Lem_Chaai_Shop_Interior.png" alt="LemChaai Shop Interior"
-                        class="w-full h-full object-cover rounded-t-[190px] rounded-b-lg border border-masala/30">
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- About Our Story Section (Moved to about.html) -->
 
     <!-- The Menu Section (Tabs) -->
     <section id="menu" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -352,12 +259,7 @@
                                 Steamed Momos</h3>
                             <p class="text-sm text-dark/70 mb-4 h-10">Soft, juicy dumplings with our secret spiced
                                 filling.</p>
-                            <div class="flex justify-between items-center mt-auto">
-                                <span class="font-bold text-dark text-lg">₹80+</span>
-                                <button
-                                    class="text-terracotta w-8 h-8 rounded-full border border-terracotta flex items-center justify-center hover:bg-terracotta hover:text-cream transition-colors"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
+                            
                         </div>
                         <div
                             class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
@@ -368,12 +270,7 @@
                                 Kurkure Momos</h3>
                             <p class="text-sm text-dark/70 mb-4 h-10">Extra crispy, spicy coating for the ultimate
                                 crunch.</p>
-                            <div class="flex justify-between items-center mt-auto">
-                                <span class="font-bold text-dark text-lg">₹120+</span>
-                                <button
-                                    class="text-terracotta w-8 h-8 rounded-full border border-terracotta flex items-center justify-center hover:bg-terracotta hover:text-cream transition-colors"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
+                            
                         </div>
                         <div
                             class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
@@ -383,12 +280,7 @@
                                 class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
                                 Gravy Momos</h3>
                             <p class="text-sm text-dark/70 mb-4 h-10">Tossed in our rich, signature spicy gravy.</p>
-                            <div class="flex justify-between items-center mt-auto">
-                                <span class="font-bold text-dark text-lg">₹140+</span>
-                                <button
-                                    class="text-terracotta w-8 h-8 rounded-full border border-terracotta flex items-center justify-center hover:bg-terracotta hover:text-cream transition-colors"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -403,12 +295,7 @@
                                 Classic Burgers</h3>
                             <p class="text-sm text-dark/70 mb-4 h-10">Crispy patties, fresh veggies, and secret sauce.
                             </p>
-                            <div class="flex justify-between items-center mt-auto">
-                                <span class="font-bold text-dark text-lg">₹80+</span>
-                                <button
-                                    class="text-terracotta w-8 h-8 rounded-full border border-terracotta flex items-center justify-center hover:bg-terracotta hover:text-cream transition-colors"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
+                            
                         </div>
                         <div
                             class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
@@ -419,12 +306,7 @@
                                 Gourmet Pizza</h3>
                             <p class="text-sm text-dark/70 mb-4 h-10">Fresh dough, rich cheese, and premium toppings.
                             </p>
-                            <div class="flex justify-between items-center mt-auto">
-                                <span class="font-bold text-dark text-lg">₹130+</span>
-                                <button
-                                    class="text-terracotta w-8 h-8 rounded-full border border-terracotta flex items-center justify-center hover:bg-terracotta hover:text-cream transition-colors"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
+                            
                         </div>
                         <div
                             class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
@@ -434,12 +316,7 @@
                                 class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
                                 Snacks & Rolls</h3>
                             <p class="text-sm text-dark/70 mb-4 h-10">Perfect crispy bites to accompany your chai.</p>
-                            <div class="flex justify-between items-center mt-auto">
-                                <span class="font-bold text-dark text-lg">₹70+</span>
-                                <button
-                                    class="text-terracotta w-8 h-8 rounded-full border border-terracotta flex items-center justify-center hover:bg-terracotta hover:text-cream transition-colors"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -454,12 +331,7 @@
                                 Spicy Noodles</h3>
                             <p class="text-sm text-dark/70 mb-4 h-10">Wok-tossed noodles with fresh veggies & garlic.
                             </p>
-                            <div class="flex justify-between items-center mt-auto">
-                                <span class="font-bold text-dark text-lg">₹100+</span>
-                                <button
-                                    class="text-terracotta w-8 h-8 rounded-full border border-terracotta flex items-center justify-center hover:bg-terracotta hover:text-cream transition-colors"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
+                            
                         </div>
                         <div
                             class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
@@ -470,12 +342,7 @@
                                 Masala Maggie</h3>
                             <p class="text-sm text-dark/70 mb-4 h-10">Street-style comfort food elevated with extra
                                 magic.</p>
-                            <div class="flex justify-between items-center mt-auto">
-                                <span class="font-bold text-dark text-lg">₹70+</span>
-                                <button
-                                    class="text-terracotta w-8 h-8 rounded-full border border-terracotta flex items-center justify-center hover:bg-terracotta hover:text-cream transition-colors"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
+                            
                         </div>
                         <div
                             class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
@@ -486,12 +353,7 @@
                                 Fried Rice</h3>
                             <p class="text-sm text-dark/70 mb-4 h-10">Aromatic rice tossed with perfectly seasoned
                                 veggies.</p>
-                            <div class="flex justify-between items-center mt-auto">
-                                <span class="font-bold text-dark text-lg">₹100+</span>
-                                <button
-                                    class="text-terracotta w-8 h-8 rounded-full border border-terracotta flex items-center justify-center hover:bg-terracotta hover:text-cream transition-colors"><i
-                                        class="fa-solid fa-plus"></i></button>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -539,10 +401,7 @@
                         class="bg-[#FC8019] hover:bg-[#e06d0e] w-full sm:w-auto text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 transition-transform hover:-translate-y-1">
                         Swiggy
                     </a>
-                    <button
-                        class="bg-[#E11B4C] hover:bg-[#c41440] w-full sm:w-auto text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 transition-transform hover:-translate-y-1">
-                        Magic Pin
-                    </button>
+                    
                 </div>
             </div>
         </div>
@@ -618,16 +477,60 @@
 
             </div>
 
-            <!-- Controls -->
-            <div class="flex justify-center gap-4 mt-8">
-                <button id="slider-prev"
-                    class="w-12 h-12 rounded-full border-2 border-masala text-masala hover:bg-masala hover:text-cream flex items-center justify-center transition-colors">
-                    <i class="fa-solid fa-arrow-left"></i>
+            <!-- Video Toggle Button -->
+            <div class="flex justify-center mt-12 w-full">
+                <button id="video-toggle-btn"
+                    class="bg-masala hover:bg-terracotta text-cream px-8 py-4 rounded-full font-bold text-lg transition-transform hover:-translate-y-1 shadow-xl shadow-masala/30 flex items-center gap-2"
+                    onclick="document.getElementById('video-testimonials-section').classList.toggle('hidden')">
+                    <i class="fa-solid fa-video"></i> More from our customers
                 </button>
-                <button id="slider-next"
-                    class="w-12 h-12 rounded-full border-2 border-masala bg-masala text-cream hover:bg-terracotta hover:border-terracotta flex items-center justify-center transition-colors">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
+            </div>
+
+            <!-- Video Testimonials Section (Hidden by Default) -->
+            <div id="video-testimonials-section" class="hidden mt-16 w-full fade-in-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Video Card 1 -->
+                    <div class="bg-cardbg rounded-3xl overflow-hidden shadow-xl shadow-masala/10 border border-masala/20 flex flex-col transition-all hover:shadow-2xl">
+                        <div class="relative w-full aspect-[4/5] bg-black flex items-center justify-center">
+                            <video src="gallery/VN20260415_134800.mp4" controls preload="metadata" class="w-full h-full object-contain"></video>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex text-terracotta mb-3 text-sm justify-center gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <!-- <h4 class="font-bold text-dark font-serif text-xl mb-2 text-center">Rahul T.</h4> -->
+                            <p class="text-sm text-dark/70 italic text-center">"Absolutely stellar experience! The best masala chai I've ever had."</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 2 -->
+                    <div class="bg-cardbg rounded-3xl overflow-hidden shadow-xl shadow-masala/10 border border-masala/20 flex flex-col transition-all hover:shadow-2xl">
+                        <div class="relative w-full aspect-[4/5] bg-black flex items-center justify-center">
+                            <video src="gallery/VN20260417_124845.mp4" controls preload="metadata" class="w-full h-full object-contain"></video>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex text-terracotta mb-3 text-sm justify-center gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <!-- <h4 class="font-bold text-dark font-serif text-xl mb-2 text-center"></h4> -->
+                            <p class="text-sm text-dark/70 italic text-center">"Great vibes, amazing snacks. Finding this place was super awesome!"</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div class="bg-cardbg rounded-3xl overflow-hidden shadow-xl shadow-masala/10 border border-masala/20 flex flex-col transition-all hover:shadow-2xl">
+                        <div class="relative w-full aspect-[4/5] bg-black flex items-center justify-center">
+                            <video src="gallery/videoplayback.mp4" controls preload="metadata" class="w-full h-full object-contain"></video>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex text-terracotta mb-3 text-sm justify-center gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <!-- <h4 class="font-bold text-dark font-serif text-xl mb-2 text-center">Karan S.</h4> -->
+                            <p class="text-sm text-dark/70 italic text-center">"A perfect evening hangout spot with friends. Truly authentic flavors."</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -649,7 +552,7 @@
                 <div
                     class="bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group border border-masala/10">
                     <div class="h-48 bg-sage/20 relative overflow-hidden">
-                        <img src="gallery/Fresh_Ingredients.png"
+                        <img src="gallery/lemon_masala_chai.png"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             alt="News Image">
                     </div>
@@ -747,217 +650,20 @@
                     </div>
                 </div>
 
-                <a href="#contact"
+                <a href="contact.html"
                     class="bg-cream hover:bg-sage text-terracotta hover:text-cream px-10 py-5 rounded-full font-bold text-xl transition-all shadow-xl hover:-translate-y-1 inline-flex items-center gap-3"><i
                         class="fa-solid fa-file-signature"></i> Apply For Franchise</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-cardbg border-t border-masala/10 fade-in-up">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-terracotta font-semibold tracking-wider uppercase mb-2 block">Get in Touch</span>
-                <h2 class="font-serif text-4xl md:text-5xl font-bold text-dark mb-4 drop-shadow-sm">We'd love to hear
-                    from you</h2>
-                <p class="text-dark/70 text-lg max-w-2xl mx-auto">Have a question about bulk orders, feedback on our
-                    menu, or just want to say hi? Drop us a message below.</p>
-            </div>
+    <!-- Contact Section (Moved to contact.html) -->
 
-            <div class="flex flex-col lg:flex-row gap-12 max-w-5xl mx-auto">
-                <!-- Direct Contact Info (Left) -->
-                <div class="lg:w-1/3 flex flex-col gap-6">
-                    <div
-                        class="bg-cream p-8 rounded-[30px] border border-terracotta/10 shadow-xl flex items-start gap-4 group hover:-translate-y-1 transition-all h-full">
-                        <div
-                            class="w-14 h-14 bg-terracotta/10 text-terracotta rounded-full flex items-center justify-center text-xl shrink-0 group-hover:bg-terracotta group-hover:text-cream transition-colors">
-                            <i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <h4 class="font-bold text-dark text-lg mb-1">Call Us</h4>
-                            <a href="tel:9953975300"
-                                class="text-dark/70 hover:text-terracotta font-medium transition-colors">+91
-                                9953975300</a>
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-cream p-8 rounded-[30px] border border-terracotta/10 shadow-xl flex items-start gap-4 group hover:-translate-y-1 transition-all h-full">
-                        <div
-                            class="w-14 h-14 bg-terracotta/10 text-terracotta rounded-full flex items-center justify-center text-xl shrink-0 group-hover:bg-terracotta group-hover:text-cream transition-colors">
-                            <i class="fa-solid fa-envelope"></i></div>
-                        <div class="break-all">
-                            <h4 class="font-bold text-dark text-lg mb-1">Email Us</h4>
-                            <a href="mailto:lemchaaiindia@gmail.com"
-                                class="text-dark/70 hover:text-terracotta font-medium transition-colors">lemchaaiindia@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-cream p-8 rounded-[30px] border border-terracotta/10 shadow-xl flex items-start gap-4 group hover:-translate-y-1 transition-all h-full">
-                        <div
-                            class="w-14 h-14 bg-terracotta/10 text-terracotta rounded-full flex items-center justify-center text-xl shrink-0 group-hover:bg-terracotta group-hover:text-cream transition-colors">
-                            <i class="fa-solid fa-clock"></i></div>
-                        <div>
-                            <h4 class="font-bold text-dark text-lg mb-1">Opening Hours</h4>
-                            <p class="text-dark/70 font-medium">9:00 AM – 10:00 PM<br>Open Everyday</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Form (Right) -->
-                <div
-                    class="lg:w-2/3 bg-cream p-8 md:p-12 rounded-[40px] border border-terracotta/10 shadow-2xl relative overflow-hidden flex flex-col justify-center">
-                    <div
-                        class="absolute -right-20 -top-20 w-64 h-64 bg-sage/10 rounded-full blur-3xl pointer-events-none">
-                    </div>
-                    <form class="space-y-6 relative z-10 w-full">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-bold text-dark mb-2 ml-1 text-dark/80">Full
-                                    Name</label>
-                                <input type="text"
-                                    class="w-full px-5 py-4 rounded-2xl bg-cardbg/80 border-2 border-transparent focus:border-terracotta focus:ring-4 focus:ring-terracotta/10 outline-none transition-all shadow-inner"
-                                    placeholder="John Doe" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-dark mb-2 ml-1 text-dark/80">Email
-                                    Address</label>
-                                <input type="email"
-                                    class="w-full px-5 py-4 rounded-2xl bg-cardbg/80 border-2 border-transparent focus:border-terracotta focus:ring-4 focus:ring-terracotta/10 outline-none transition-all shadow-inner"
-                                    placeholder="john@example.com" required>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-dark mb-2 ml-1 text-dark/80">Subject
-                                (Optional)</label>
-                            <input type="text"
-                                class="w-full px-5 py-4 rounded-2xl bg-cardbg/80 border-2 border-transparent focus:border-terracotta focus:ring-4 focus:ring-terracotta/10 outline-none transition-all shadow-inner"
-                                placeholder="Franchise Inquiry, Feedback, etc.">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-dark mb-2 ml-1 text-dark/80">Your Message</label>
-                            <textarea rows="5"
-                                class="w-full px-5 py-4 rounded-2xl bg-cardbg/80 border-2 border-transparent focus:border-terracotta focus:ring-4 focus:ring-terracotta/10 outline-none transition-all shadow-inner resize-none"
-                                placeholder="How can we help you?" required></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-masala hover:bg-terracotta text-cream px-8 py-5 rounded-2xl font-bold text-xl transition-all shadow-xl hover:shadow-terracotta/30 hover:-translate-y-1 flex justify-center items-center gap-3">
-                            <i class="fa-solid fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-cream pt-20 pb-8 border-t-[12px] border-terracotta">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <!-- Brand & Map -->
-                <div class="lg:col-span-2">
-                    <a href="#" class="flex items-center gap-2 mb-6 inline-block">
-                        <i class="fa-solid fa-leaf text-sage text-2xl"></i>
-                        <span class="font-serif font-bold text-3xl text-terracotta tracking-tight">Lem<span
-                                class="text-cream">Chaai</span></span>
-                    </a>
-                    <p class="text-cream/70 mb-6 max-w-md">Brewed with Passion. Served with Care. Your go-to destination
-                        for handcrafted teas and a Taste of New Bharat.</p>
-
-                    <!-- Map Wrapper -->
-                    <div
-                        class="rounded-2xl overflow-hidden border border-cream/20 h-48 max-w-md grayscale hover:grayscale-0 transition-all duration-500">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <!-- Fallback static text if iframe is invalid -->
-                        <div class="w-full h-full bg-cream/10 flex items-center justify-center absolute inset-0 -z-10">
-                            Map Loading...</div>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="font-serif text-xl font-bold text-terracotta mb-6">Quick Links</h4>
-                    <ul class="space-y-4">
-                        <li><a href="#home"
-                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Home</a></li>
-                        <li><a href="#about"
-                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-angle-right text-xs text-sage"></i> About Us</a></li>
-                        <li><a href="#menu"
-                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Menu</a></li>
-                        <li><a href="#order"
-                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Order Online</a></li>
-                        <li><a href="#franchise"
-                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Franchise</a></li>
-                        <li><a href="#contact"
-                                class="text-cream/80 hover:text-terracotta transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-angle-right text-xs text-sage"></i> Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="font-serif text-xl font-bold text-terracotta mb-6">Contact Us</h4>
-                    <ul class="space-y-4 text-cream/80">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-location-dot mt-1 text-sage"></i>
-                            <span>C-118C, Ground Floor, Vaishali Colony, Street No.3, Near Mannapuram Gold Loan, South
-                                West Delhi-110045</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-phone text-sage"></i>
-                            <a href="tel:9953975300" class="hover:text-terracotta transition-colors">+91 9953975300</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-envelope text-sage"></i>
-                            <a href="mailto:lemchaaiindia@gmail.com"
-                                class="hover:text-terracotta transition-colors">lemchaaiindia@gmail.com</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-clock text-sage"></i>
-                            <span>9 AM – 10 PM (Everyday)</span>
-                        </li>
-                    </ul>
-
-                    <!-- Socials -->
-                    <div class="flex gap-4 mt-8">
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-terracotta transition-colors"><i
-                                class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-terracotta transition-colors"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-terracotta transition-colors"><i
-                                class="fa-brands fa-youtube"></i></a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-terracotta transition-colors"><i
-                                class="fa-brands fa-x-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom Copyright -->
-            <div
-                class="pt-8 border-t border-cream/10 text-center flex flex-col md:flex-row justify-between items-center gap-4 text-cream/50 text-sm">
-                <p>&copy; 2025 lemchaai.com. All Rights Reserved.</p>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-cream transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-cream transition-colors">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
 
     <!-- Script -->
+    <script src="components.js"></script>
     <script src="script.js"></script>
 </body>
 

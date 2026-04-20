@@ -1,118 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Lemchaai</title>
-    <meta name="description" content="Contact Lemchaai for orders and inquiries. Find our location, hours, phone number, and WhatsApp ordering. Quick delivery available.">
-    <meta name="keywords" content="contact Lemchaai, location, phone number, WhatsApp order, opening hours, directions">
-    <!-- Load non-critical CSS asynchronously -->
-    <link rel="preload" href="styles-optimized.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles-optimized.css"></noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"></noscript>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    <title>LemChaai.com - Contact Us</title>
+    <meta name="description"
+        content="LemChaai offers handcrafted teas, refreshing beverages, and delicious fast food. A Taste of New Bharat.">
+
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Tailwind CSS (via CDN) with Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#C04000',
+                        masala: '#B85D19',
+                        sage: '#8A9A5B',
+                        cream: '#FFFDD0',
+                        dark: '#1a1a1a',
+                        cardbg: '#fffaed', // slightly lighter cream for cards
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Navbar Component Container -->
+
+<body class="bg-cream text-dark font-sans antialiased overflow-x-hidden">
     <div id="navbar-container"></div>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p>Get in touch or visit us</p>
-            </div>
-        </section>
-
-        <section class="contact-content">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h2>Visit Lemchaai</h2>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h3>Address</h3>
-                                <p>C-118C, 2nd Floor, <br>Khandoliya Plaza, Above Mannapuram Gold, <br>Vaishali Colony, Palam Dabri Road, <br>South West Delhi -110045</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h3>Phone</h3>
-                                <p>+91 7838000475</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <h3>WhatsApp Orders</h3>
-                                <p>Quick ordering via WhatsApp</p>
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20place%20an%20order!" class="whatsapp-btn" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Order Now
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h3>Opening Hours</h3>
-                                <p>Monday - Friday: 11:00 AM - 10:00 PM<br>
-                                Saturday - Sunday: 12:00 PM - 11:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form-section">
-                        <h2>Quick Order</h2>
-                        <p>Place your order directly through WhatsApp</p>
-                        <div class="quick-order-options">
-                            <div class="quick-order-item">
-                                <h3>🍋 Lemon Tea</h3>
-                                
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Lemon%20Tea" class="order-btn" target="_blank">Order</a>
-                            </div>
-                            <div class="quick-order-item">
-                                <h3>🥟 Momos</h3>
-                           
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Momos" class="order-btn" target="_blank">Order</a>
-                            </div>
-                            <div class="quick-order-item">
-                                <h3>🍜 Maggie</h3>
-                                
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Maggie" class="order-btn" target="_blank">Order</a>
-                            </div>
-                            <div class="quick-order-item">
-                                <h3>🥞 Paratha</h3>
-                               
-                                <a href="https://wa.me/917838000475?text=Hello%20Lemchaai,%20I'd%20like%20to%20order:%20Paratha" class="order-btn" target="_blank">Order</a>
-                            </div>
-                        </div>
-                        <div class="full-menu-link">
-                            <a href="menu.html" class="btn-secondary">View Full Menu</a>
-                        </div>
-                    </div>
+    <main class="pt-24 mt-8">
+        <!-- Contact Section -->
+        <section id="contact" class="pb-24 pt-12 fade-in-up">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-terracotta font-semibold tracking-wider uppercase mb-2 block">Get in Touch</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-dark mb-4 drop-shadow-sm">We'd love to
+                        hear
+                        from you</h2>
+                    <p class="text-dark/70 text-lg max-w-2xl mx-auto">Have a question about bulk orders, feedback on our
+                        menu, or just want to say hi? Drop us a message below.</p>
                 </div>
-                
-                <div class="map-section">
-                    <h2>Find Us</h2>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.740792849822!2d77.07940537555201!3d28.607551975678366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1bd47f58b533%3A0x22f639c118ac903b!2sLemChaai!5e0!3m2!1sen!2sin!4v1758958737040!5m2!1sen!2sin" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <div class="flex flex-col lg:flex-row gap-12 max-w-5xl mx-auto">
+                    <!-- Direct Contact Info (Left) -->
+                    <div class="lg:w-1/3 flex flex-col gap-6">
+                        <div
+                            class="bg-cream p-8 rounded-[30px] border border-terracotta/10 shadow-xl flex items-start gap-4 group hover:-translate-y-1 transition-all h-full">
+                            <div
+                                class="w-14 h-14 bg-terracotta/10 text-terracotta rounded-full flex items-center justify-center text-xl shrink-0 group-hover:bg-terracotta group-hover:text-cream transition-colors">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg mb-1">Call Us</h4>
+                                <a href="tel:9953975300"
+                                    class="text-dark/70 hover:text-terracotta font-medium transition-colors">+91
+                                    9953975300</a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-cream p-8 rounded-[30px] border border-terracotta/10 shadow-xl flex items-start gap-4 group hover:-translate-y-1 transition-all h-full">
+                            <div
+                                class="w-14 h-14 bg-terracotta/10 text-terracotta rounded-full flex items-center justify-center text-xl shrink-0 group-hover:bg-terracotta group-hover:text-cream transition-colors">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="break-all">
+                                <h4 class="font-bold text-dark text-lg mb-1">Email Us</h4>
+                                <a href="mailto:lemchaaiindia@gmail.com"
+                                    class="text-dark/70 hover:text-terracotta font-medium transition-colors">lemchaaiindia@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-cream p-8 rounded-[30px] border border-terracotta/10 shadow-xl flex items-start gap-4 group hover:-translate-y-1 transition-all h-full">
+                            <div
+                                class="w-14 h-14 bg-terracotta/10 text-terracotta rounded-full flex items-center justify-center text-xl shrink-0 group-hover:bg-terracotta group-hover:text-cream transition-colors">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg mb-1">Opening Hours</h4>
+                                <p class="text-dark/70 font-medium">9:00 AM – 10:00 PM<br>Open Everyday</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form (Right) -->
+                    <div
+                        class="lg:w-2/3 bg-cream p-8 md:p-12 rounded-[40px] border border-terracotta/10 shadow-2xl relative overflow-hidden flex flex-col justify-center">
+                        <div
+                            class="absolute -right-20 -top-20 w-64 h-64 bg-sage/10 rounded-full blur-3xl pointer-events-none">
+                        </div>
+                        <form id="contact-form" class="space-y-6 relative z-10 w-full">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-dark mb-2 ml-1 text-dark/80">Full
+                                        Name</label>
+                                    <input type="text" name="name"
+                                        class="w-full px-5 py-4 rounded-2xl bg-cardbg/80 border-2 border-transparent focus:border-terracotta focus:ring-4 focus:ring-terracotta/10 outline-none transition-all shadow-inner"
+                                        placeholder="John Doe" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-dark mb-2 ml-1 text-dark/80">Email
+                                        Address</label>
+                                    <input type="email" name="email"
+                                        class="w-full px-5 py-4 rounded-2xl bg-cardbg/80 border-2 border-transparent focus:border-terracotta focus:ring-4 focus:ring-terracotta/10 outline-none transition-all shadow-inner"
+                                        placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-dark mb-2 ml-1 text-dark/80">Subject
+                                    (Optional)</label>
+                                <input type="text" name="title"
+                                    class="w-full px-5 py-4 rounded-2xl bg-cardbg/80 border-2 border-transparent focus:border-terracotta focus:ring-4 focus:ring-terracotta/10 outline-none transition-all shadow-inner"
+                                    placeholder="Franchise Inquiry, Feedback, etc.">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-dark mb-2 ml-1 text-dark/80">Your
+                                    Message</label>
+                                <textarea rows="5" name="message"
+                                    class="w-full px-5 py-4 rounded-2xl bg-cardbg/80 border-2 border-transparent focus:border-terracotta focus:ring-4 focus:ring-terracotta/10 outline-none transition-all shadow-inner resize-none"
+                                    placeholder="How can we help you?" required></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-masala hover:bg-terracotta text-cream px-8 py-5 rounded-2xl font-bold text-xl transition-all shadow-xl hover:shadow-terracotta/30 hover:-translate-y-1 flex justify-center items-center gap-3">
+                                <i class="fa-solid fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer Component Container -->
     <div id="footer-container"></div>
+    <script src="components.js"></script>
+    <script src="script.js"></script>
 
-    <script src="components.js" defer></script>
-    <script src="script.js" defer></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+            (function () {
+                emailjs.init("W0hbpuZzjaS1byn14");
+            })();
+
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+            emailjs.sendForm('service_m7d6vh9', 'template_nxw7d4c', this)
+                .then(function () {
+                    alert('Message Sent Successfully!');
+                    document.getElementById('contact-form').reset();
+                    btn.innerHTML = originalText;
+                }, function (error) {
+                    alert('Failed to send the message. ' + JSON.stringify(error));
+                    btn.innerHTML = originalText;
+                });
+        });
+    </script>
 </body>
+
 </html>
