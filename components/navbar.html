@@ -1,35 +1,50 @@
     <nav id="navbar"
-        class="fixed w-full z-50 transition-all duration-300 py-4 bg-cream/90 backdrop-blur-md border-b border-terracotta/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2">
+        class="fixed w-full z-50 transition-all duration-300 py-3 bg-cream/95 backdrop-blur-md border-b border-terracotta/20 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-4">
+            
+            <!-- Logo -->
+            <a href="index.html" class="flex-shrink-0 flex items-center gap-2">
                 <img src="gallery/logo.png" alt="LemChaai Logo"
-                    class="h-20 w-auto object-contain drop-shadow-md scale-110 origin-left">
+                    class="h-14 sm:h-16 w-auto object-contain drop-shadow-md origin-left">
             </a>
 
-            <!-- Desktop Links -->
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="text-dark hover:text-terracotta transition-colors font-medium">Home</a>
-                <a href="about.html" class="text-dark hover:text-terracotta transition-colors font-medium">About</a>
-                <a href="index.html#menu" class="text-dark hover:text-terracotta transition-colors font-medium">Menu</a>
-                <a href="index.html#franchise" class="text-dark hover:text-terracotta transition-colors font-medium">Franchise</a>
-                <a href="contact.html" class="text-dark hover:text-terracotta transition-colors font-medium">Contact</a>
-                <a href="index.html#order"
-                    class="bg-masala hover:bg-terracotta text-cream px-6 py-2 rounded-full font-semibold transition-transform hover:-translate-y-0.5 shadow-lg shadow-masala/30">Order
-                    Now</a>
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-8 font-medium">
+                <a href="index.html" class="text-dark hover:text-terracotta transition-colors">Home</a>
+                <a href="about.html" class="text-dark hover:text-terracotta transition-colors">About</a>
+                <a href="index.html#franchise" class="text-dark hover:text-terracotta transition-colors">Franchise</a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-terracotta text-2xl focus:outline-none">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+            <!-- Right Actions -->
+            <div class="flex items-center space-x-5 sm:space-x-6">
+                <!-- Search Icon -->
+                <button class="text-dark hover:text-terracotta text-xl transition-colors">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- Cart Icon -->
+                <button id="nav-cart-btn" class="relative text-dark hover:text-terracotta text-2xl transition-colors group">
+                    <i class="fa-solid fa-cart-shopping group-hover:scale-110 transition-transform"></i>
+                    <span id="nav-cart-badge" class="absolute -top-2 -right-2 bg-terracotta text-cream text-[11px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-md">0</span>
+                </button>
+
+                <!-- Desktop Menu Toggle (Optional Links) -->
+                <button id="desktop-menu-btn" class="hidden md:block text-dark hover:text-terracotta text-2xl transition-colors">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-terracotta text-2xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Menu Panel -->
         <div id="mobile-menu"
-            class="hidden md:hidden absolute top-full left-0 w-full bg-cream border-t border-terracotta/20 shadow-xl py-4 px-6 flex flex-col space-y-4">
+            class="hidden absolute top-full left-0 w-full bg-cream border-t border-terracotta/20 shadow-xl py-4 px-6 flex flex-col space-y-4">
             <a href="index.html" class="mobile-link text-dark hover:text-terracotta font-medium">Home</a>
             <a href="about.html" class="mobile-link text-dark hover:text-terracotta font-medium">About</a>
-            <a href="index.html#menu" class="mobile-link text-dark hover:text-terracotta font-medium">Menu</a>
             <a href="index.html#franchise" class="mobile-link text-dark hover:text-terracotta font-medium">Franchise</a>
             <a href="contact.html" class="mobile-link text-dark hover:text-terracotta font-medium">Contact</a>
             <a href="index.html#order"

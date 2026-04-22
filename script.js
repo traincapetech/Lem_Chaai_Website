@@ -115,6 +115,70 @@ if (slider && prevBtn && nextBtn) {
     });
 }
 
+// Hero Carousel Controls
+const heroCarousel = document.getElementById('hero-carousel');
+const heroPrevBtn = document.getElementById('hero-prev');
+const heroNextBtn = document.getElementById('hero-next');
+const heroDots = document.querySelectorAll('.hero-dot');
+
+if (heroCarousel) {
+    let currentSlide = 0;
+    const totalSlides = 5;
+    
+    const updateDots = () => {
+        heroDots.forEach((dot, index) => {
+            if(index === currentSlide) {
+                dot.classList.add('active', 'w-6', 'bg-[#eab308]');
+                dot.classList.remove('bg-white/50');
+            } else {
+                dot.classList.remove('active', 'w-6', 'bg-[#eab308]');
+                dot.classList.add('bg-white/50');
+            }
+        });
+    };
+
+    const scrollHero = () => {
+        const slideWidth = heroCarousel.clientWidth;
+        heroCarousel.scrollTo({ left: currentSlide * slideWidth, behavior: 'smooth' });
+        updateDots();
+    };
+
+    if (heroNextBtn && heroPrevBtn) {
+        heroNextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            scrollHero();
+        });
+
+        heroPrevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            scrollHero();
+        });
+    }
+
+    heroDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            scrollHero();
+        });
+    });
+
+    // Handle scroll snapping updates
+    heroCarousel.addEventListener('scroll', () => {
+        const slideWidth = heroCarousel.clientWidth;
+        const newSlide = Math.round(heroCarousel.scrollLeft / slideWidth);
+        if(newSlide !== currentSlide && newSlide >= 0 && newSlide < totalSlides) {
+            currentSlide = newSlide;
+            updateDots();
+        }
+    });
+
+    // Autoplay
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        scrollHero();
+    }, 5000);
+}
+
 
 /* =========================================
    CART & WHATSAPP INTEGRATION LOGIC
@@ -125,6 +189,8 @@ let cart = JSON.parse(localStorage.getItem('lemchaai_cart')) || [];
 // DOM Elements
 const floatingCartBtn = document.getElementById('floating-cart-btn');
 const cartBadge = document.getElementById('cart-badge');
+const navCartBtn = document.getElementById('nav-cart-btn');
+const navCartBadge = document.getElementById('nav-cart-badge');
 const cartSidebar = document.getElementById('cart-sidebar');
 const cartSidebarOverlay = document.getElementById('cart-sidebar-overlay');
 const closeCartBtn = document.getElementById('close-cart-btn');
@@ -156,6 +222,10 @@ function updateCartUI() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
     if(cartBadge) cartBadge.innerText = totalItems;
+    
+    // Also update navbar cart badge if it exists (might be injected dynamically)
+    const dynamicNavCartBadge = document.getElementById('nav-cart-badge');
+    if(dynamicNavCartBadge) dynamicNavCartBadge.innerText = totalItems;
     
     if(floatingCartBtn) {
         floatingCartBtn.classList.remove('hidden');
@@ -222,11 +292,19 @@ function saveCart() {
 }
 
 // Side Bar Toggles
-if (floatingCartBtn && cartSidebar && cartSidebarOverlay) {
-    floatingCartBtn.addEventListener('click', () => {
+if (cartSidebar && cartSidebarOverlay) {
+    const openCart = () => {
         cartSidebarOverlay.classList.remove('hidden');
         setTimeout(() => cartSidebarOverlay.classList.remove('opacity-0'), 10);
         cartSidebar.classList.remove('translate-x-full');
+    };
+
+    if (floatingCartBtn) floatingCartBtn.addEventListener('click', openCart);
+    
+    // Delegate event for dynamically loaded nav-cart-btn
+    document.addEventListener('click', (e) => {
+        const navBtn = e.target.closest('#nav-cart-btn');
+        if (navBtn) openCart();
     });
 
     const closeCart = () => {
@@ -235,7 +313,7 @@ if (floatingCartBtn && cartSidebar && cartSidebarOverlay) {
         setTimeout(() => cartSidebarOverlay.classList.add('hidden'), 300);
     };
 
-    closeCartBtn.addEventListener('click', closeCart);
+    if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
     cartSidebarOverlay.addEventListener('click', closeCart);
 }
 
@@ -352,14 +430,15 @@ if (qtyPlus && qtyMinus && confirmAddBtn && closeModalBtn) {
     });
 }
 
-// Bind + Add buttons
-if(addToCartBtns) {
-    addToCartBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+// Bind + Add buttons using event delegation for dynamic elements
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.add-to-cart-btn');
+    if (btn) {
+        if (typeof openOptionsModal === 'function') {
             openOptionsModal(btn.dataset);
-        });
-    });
-}
+        }
+    }
+});
 
 // WhatsApp Checkout Logic
 function checkoutWhatsapp() {

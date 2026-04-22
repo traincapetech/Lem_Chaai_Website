@@ -50,112 +50,127 @@
     <!-- Navbar Container -->
     <div id="navbar-container"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 lg:pt-40 lg:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <!-- Text Content -->
-            <div class="lg:w-1/2 fade-in-up">
-                <div
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage/20 text-sage font-semibold text-sm mb-6 border border-sage/30">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-sage"></span>
-                    </span>
-                    A Taste of New Bharat
-                </div>
-                <h1 class="font-serif text-5xl lg:text-7xl font-bold leading-tight mb-6 text-dark">
-                    Sip, Savor & Snack —<br>
-                    <span class="text-terracotta">A Flavorful Escape Awaits You</span>
-                </h1>
-                <p class="text-lg text-dark/80 mb-8 max-w-xl">
-                    Welcome to LemChaai.com, your go-to destination for handcrafted teas, refreshing beverages, and
-                    delicious fast food. Whether you're on the move or taking a break, we've got the perfect pick-me-up.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#menu"
-                        class="bg-terracotta hover:bg-masala text-cream px-8 py-4 rounded-full font-bold text-lg transition-transform hover:-translate-y-1 shadow-xl shadow-terracotta/30 flex items-center gap-2">
-                        <i class="fa-solid fa-mug-hot"></i> Explore Menu
-                    </a>
-                    <a href="#order"
-                        class="border-2 border-masala text-masala hover:bg-masala hover:text-cream px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-motorcycle"></i> Order Online
-                    </a>
-                    <a href="#contact"
-                        class="text-dark hover:text-terracotta px-4 py-4 font-semibold text-lg flex items-center gap-2 group transition-colors">
-                        Visit Us <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Hero Image -->
-            <div class="lg:w-1/2 w-full fade-in-up" style="transition-delay: 200ms;">
-                <div
-                    class="relative w-full max-w-md mx-auto aspect-[3/4] arched-frame shadow-2xl shadow-terracotta/20 bg-cardbg flex items-center justify-center p-2">
-                    <img src="gallery/Lem_Chaai_Home_Page.png" alt="LemChaai Teas and Snacks"
-                        class="w-full h-full object-cover rounded-t-[190px] rounded-b-lg border-2 border-transparent">
-
-                    <!-- Floating badge -->
-                    <div class="absolute -left-6 bottom-12 bg-cream p-4 rounded-2xl shadow-xl border border-terracotta/10 flex items-center gap-3 animate-bounce"
-                        style="animation-duration: 3s;">
-                        <div
-                            class="w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center text-sage text-2xl">
-                            <i class="fa-solid fa-leaf"></i>
-                        </div>
-                        <div>
-                            <p class="font-bold text-dark text-sm">Fresh Ingredients</p>
-                            <p class="text-xs text-dark/60">Brewed Daily</p>
-                        </div>
+    <!-- Hero Section (Combo Carousel) -->
+    <section id="home" class="pt-24 lg:pt-32 pb-10 w-full bg-cream">
+        <div class="max-w-7xl mx-auto relative group">
+            <!-- Carousel Container -->
+            <div id="hero-carousel" class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory scroll-smooth w-full pb-4 pt-2">
+                
+                <!-- Slide 1: 2 Veg Burgers -->
+                <div class="w-full flex-shrink-0 snap-center relative aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] rounded-2xl md:rounded-[40px] overflow-hidden shadow-xl border border-masala/5 bg-black isolate">
+                    <img src="gallery/two_veg_burgers_1776840953252.png" alt="2 Veg Burgers" class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent flex flex-col justify-center px-8 md:px-16">
+                        <span class="inline-block bg-[#eab308] text-dark text-xs md:text-sm font-bold px-3 py-1 rounded shadow-sm w-max mb-3 animate-pulse">BEST VALUE</span>
+                        <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 md:mb-4 leading-tight">Buy 2 Veg Burgers<br><span class="text-[#eab308]">At Just ₹75</span></h2>
+                        <p class="text-white/80 text-sm md:text-lg mb-6 max-w-md">Double the crunch, double the flavor. Perfect for sharing!</p>
+                        <button class="add-to-cart-btn bg-[#eab308] hover:bg-white text-dark px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg transition-transform hover:-translate-y-1 shadow-lg w-max flex items-center gap-2" data-name="2 Veg Burgers Combo" data-price-single="75">
+                            Order Now <i class="fa-solid fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
+
+                <!-- Slide 2: Vada Pav + Milk Tea -->
+                <div class="w-full flex-shrink-0 snap-center relative aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] rounded-2xl md:rounded-[40px] overflow-hidden shadow-xl border border-masala/5 bg-black isolate">
+                    <img src="gallery/vada_pav_chai_dark_1776840366304.png" alt="Vada Pav and Milk Tea" class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent flex flex-col justify-center px-8 md:px-16">
+                        <span class="inline-block bg-[#eab308] text-dark text-xs md:text-sm font-bold px-3 py-1 rounded shadow-sm w-max mb-3">MUMBAI SPECIAL</span>
+                        <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 md:mb-4 leading-tight">Vada Pav + Milk Tea<br><span class="text-[#eab308]">At Just ₹79</span></h2>
+                        <p class="text-white/80 text-sm md:text-lg mb-6 max-w-md">The authentic street style combo to kickstart your day.</p>
+                        <button class="add-to-cart-btn bg-[#eab308] hover:bg-white text-dark px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg transition-transform hover:-translate-y-1 shadow-lg w-max flex items-center gap-2" data-name="Vada Pav + Chai Combo" data-price-single="79">
+                            Order Now <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Burger + Cold Drink -->
+                <div class="w-full flex-shrink-0 snap-center relative aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] rounded-2xl md:rounded-[40px] overflow-hidden shadow-xl border border-masala/5 bg-black isolate">
+                    <img src="gallery/burger_combo_dark_1776840349016.png" alt="Burger and Cold Drink" class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent flex flex-col justify-center px-8 md:px-16">
+                        <span class="inline-block bg-[#eab308] text-dark text-xs md:text-sm font-bold px-3 py-1 rounded shadow-sm w-max mb-3">CLASSIC MEAL</span>
+                        <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 md:mb-4 leading-tight">Burger + Cold Drink<br><span class="text-[#eab308]">At Just ₹89</span></h2>
+                        <p class="text-white/80 text-sm md:text-lg mb-6 max-w-md">A satisfying classic veg burger with a refreshing chill.</p>
+                        <button class="add-to-cart-btn bg-[#eab308] hover:bg-white text-dark px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg transition-transform hover:-translate-y-1 shadow-lg w-max flex items-center gap-2" data-name="Burger + Drink Combo" data-price-single="89">
+                            Order Now <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Veg Sandwich + Hot Coffee -->
+                <div class="w-full flex-shrink-0 snap-center relative aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] rounded-2xl md:rounded-[40px] overflow-hidden shadow-xl border border-masala/5 bg-black isolate">
+                    <img src="gallery/sandwich_coffee_1776840974343.png" alt="Veg Sandwich and Hot Coffee" class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent flex flex-col justify-center px-8 md:px-16">
+                        <span class="inline-block bg-[#eab308] text-dark text-xs md:text-sm font-bold px-3 py-1 rounded shadow-sm w-max mb-3">EVENING DELIGHT</span>
+                        <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 md:mb-4 leading-tight">Veg Sandwich + Hot Coffee<br><span class="text-[#eab308]">At Just ₹109</span></h2>
+                        <p class="text-white/80 text-sm md:text-lg mb-6 max-w-md">Grilled to perfection, paired with freshly brewed coffee.</p>
+                        <button class="add-to-cart-btn bg-[#eab308] hover:bg-white text-dark px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg transition-transform hover:-translate-y-1 shadow-lg w-max flex items-center gap-2" data-name="Sandwich + Coffee Combo" data-price-single="109">
+                            Order Now <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Chinese Platter Combo -->
+                <div class="w-full flex-shrink-0 snap-center relative aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] rounded-2xl md:rounded-[40px] overflow-hidden shadow-xl border border-masala/5 bg-black isolate">
+                    <img src="gallery/chinese_platter_combo_1776841401253.png" alt="Chinese Platter Combo" class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent flex flex-col justify-center px-8 md:px-16">
+                        <span class="inline-block bg-[#eab308] text-dark text-xs md:text-sm font-bold px-3 py-1 rounded shadow-sm w-max mb-3">MEGA COMBO</span>
+                        <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 md:mb-4 leading-tight">Ultimate Chinese Platter<br><span class="text-[#eab308]">At Just ₹199</span></h2>
+                        <p class="text-white/80 text-sm md:text-lg mb-6 max-w-md">Hakka Noodles + Manchurian + Fried Rice + Chilli Paneer + 2 Paneer Momos!</p>
+                        <button class="add-to-cart-btn bg-[#eab308] hover:bg-white text-dark px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-lg transition-transform hover:-translate-y-1 shadow-lg w-max flex items-center gap-2" data-name="Chinese Platter Combo" data-price-single="199">
+                            Order Now <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Carousel Controls -->
+            <button id="hero-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white backdrop-blur-md text-dark w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-xl">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="hero-next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white backdrop-blur-md text-dark w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-xl">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <!-- Carousel Indicators -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                <div class="w-2 h-2 rounded-full bg-white transition-all cursor-pointer hero-dot active:w-6 active:bg-[#eab308]"></div>
+                <div class="w-2 h-2 rounded-full bg-white/50 transition-all cursor-pointer hero-dot"></div>
+                <div class="w-2 h-2 rounded-full bg-white/50 transition-all cursor-pointer hero-dot"></div>
+                <div class="w-2 h-2 rounded-full bg-white/50 transition-all cursor-pointer hero-dot"></div>
+                <div class="w-2 h-2 rounded-full bg-white/50 transition-all cursor-pointer hero-dot"></div>
             </div>
         </div>
     </section>
 
-    <!-- Highlights Banner -->
-    <section class="relative z-20 -mt-8 lg:-mt-16 pb-12 fade-in-up max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+    <!-- Dynamic Zomato-style App Sections -->
+    <div id="dynamic-app-container" class="w-full relative z-30 bg-cream"></div>
 
-            <div
-                class="bg-cardbg/80 backdrop-blur-md rounded-[32px] p-8 border border-terracotta/20 shadow-xl shadow-masala/5 flex flex-col items-center text-center group hover:shadow-2xl hover:shadow-masala/10 transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="w-16 h-16 rounded-[20px] bg-sage/10 text-sage flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-sage group-hover:text-cream transition-all duration-300">
-                    <i class="fa-solid fa-seedling"></i>
+    <!-- Sweet Moments Promotional Banner -->
+    <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-up">
+        <div class="flex flex-col md:flex-row w-full overflow-hidden shadow-2xl bg-white border border-masala/10">
+            <!-- Left Side: Dark Background with Text -->
+            <div class="w-full md:w-1/2 bg-dark p-10 md:p-16 flex flex-col items-center justify-center text-center text-cream relative">
+                <!-- Icon placeholder -->
+                <div class="mb-6">
+                    <img src="gallery/logo.png" alt="LemChaai Logo" class="h-16 w-auto object-contain brightness-0 invert opacity-90">
                 </div>
-                <h3 class="font-bold font-serif text-xl text-dark mb-1">Freshly Brewed</h3>
-                <p class="text-dark/60 font-medium">Teas Daily</p>
+                <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-black tracking-wide mb-6 leading-[1.1] text-terracotta">
+                    Flavorful Bites,<br>Made Just For You!
+                </h2>
+                <p class="text-cream/80 text-sm md:text-lg font-medium max-w-sm leading-relaxed">
+                    Chinese, Italian, or street food classics? They deserve a celebration all their own! Come indulge at LemChaai.
+                </p>
             </div>
-
-            <div
-                class="bg-cardbg/80 backdrop-blur-md rounded-[32px] p-8 border border-terracotta/20 shadow-xl shadow-masala/5 flex flex-col items-center text-center group hover:shadow-2xl hover:shadow-masala/10 transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="w-16 h-16 rounded-[20px] bg-[#8fd3fe]/20 text-[#25a5f1] flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-[#25a5f1] group-hover:text-cream transition-all duration-300">
-                    <i class="fa-solid fa-glass-water"></i>
+            
+            <!-- Right Side: Striped Background with Image -->
+            <div class="w-full md:w-1/2 relative bg-cardbg flex items-center justify-center p-12 md:p-20" style="background-image: repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0,0,0,0.02) 40px, rgba(0,0,0,0.02) 80px);">
+                <!-- Image Container -->
+                <div class="relative w-full max-w-sm aspect-[4/3] bg-white p-3 md:p-4 shadow-xl z-10 rounded-2xl border border-masala/10 rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+                    <div class="w-full h-full rounded-xl relative overflow-hidden">
+                         <img src="gallery/savory_moments_platter_1776842620149.png" alt="Savory Cafe Food" class="w-full h-full object-cover">
+                    </div>
                 </div>
-                <h3 class="font-bold font-serif text-xl text-dark mb-1">Signature Iced</h3>
-                <p class="text-dark/60 font-medium">Beverages</p>
             </div>
-
-            <div
-                class="bg-cardbg/80 backdrop-blur-md rounded-[32px] p-8 border border-terracotta/20 shadow-xl shadow-masala/5 flex flex-col items-center text-center group hover:shadow-2xl hover:shadow-masala/10 transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="w-16 h-16 rounded-[20px] bg-[#ffca28]/20 text-[#eab308] flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-[#eab308] group-hover:text-cream transition-all duration-300">
-                    <i class="fa-solid fa-burger"></i>
-                </div>
-                <h3 class="font-bold font-serif text-xl text-dark mb-1">Made-to-Order</h3>
-                <p class="text-dark/60 font-medium">Fast Food</p>
-            </div>
-
-            <div
-                class="bg-cardbg/80 backdrop-blur-md rounded-[32px] p-8 border border-terracotta/20 shadow-xl shadow-masala/5 flex flex-col items-center text-center group hover:shadow-2xl hover:shadow-masala/10 transition-all duration-300 hover:-translate-y-2">
-                <div
-                    class="w-16 h-16 rounded-[20px] bg-terracotta/10 text-terracotta flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-terracotta group-hover:text-cream transition-all duration-300">
-                    <i class="fa-solid fa-rocket"></i>
-                </div>
-                <h3 class="font-bold font-serif text-xl text-dark mb-1">Quick Service</h3>
-                <p class="text-dark/60 font-medium">Big Taste</p>
-            </div>
-
         </div>
     </section>
 
@@ -208,166 +223,6 @@
     </section>
 
     <!-- About Our Story Section (Moved to about.html) -->
-
-    <!-- The Menu Section (Tabs) -->
-    <section id="menu" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <!-- Background Glow to blend with the cream page -->
-        <div class="absolute inset-0 bg-[#007D55]/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-        <div
-            class="py-24 bg-gradient-to-br from-[#007D55] via-[#008d61] to-[#007D55] rounded-[40px] md:rounded-[100px] shadow-[0_20px_50px_rgba(0,125,85,0.3)] relative overflow-hidden border border-white/20">
-            <!-- Ambient gradient blobs to soften the green -->
-            <div class="absolute -top-40 -left-40 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none">
-            </div>
-            <div
-                class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#ffca28]/10 rounded-full blur-3xl pointer-events-none">
-            </div>
-
-            <div class="relative z-10 px-4">
-                <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                    <p class="text-[#ffca28] font-semibold tracking-wider uppercase mb-2">Our Menu</p>
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-md">Crafted to
-                        Perfection</h2>
-                    <p class="text-white/90 text-lg leading-relaxed">A sneak peek at our fan favorites. Click on the
-                        tabs below to explore our top picks.</p>
-                </div>
-
-                <!-- Tabs -->
-                <div
-                    class="flex flex-wrap justify-center gap-2 mb-12 fade-in-up border-b border-white/10 pb-4 max-w-4xl mx-auto">
-                    <button class="menu-tab active bg-white text-[#007D55] shadow-lg px-6 py-2 rounded-full font-medium"
-                        data-target="tab-momo">Momolicious</button>
-                    <button
-                        class="menu-tab text-white/70 px-6 py-2 rounded-full font-medium transition-all hover:text-white"
-                        data-target="tab-food">Fast Food</button>
-                    <button
-                        class="menu-tab text-white/70 px-6 py-2 rounded-full font-medium transition-all hover:text-white"
-                        data-target="tab-rice">Rice, Noodles & Maggie</button>
-                </div>
-
-                <!-- Tab Content Arrays -->
-                <div class="menu-content fade-in-up">
-
-                    <!-- Momolicious Tab -->
-                    <div id="tab-momo" class="tab-pane hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div
-                            class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
-                            <img src="gallery/Lem_Chaai_Steamed_Momos.png"
-                                class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm" alt="Steamed Momos">
-                            <h3
-                                class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
-                                Steamed Momos</h3>
-                            <p class="text-sm text-dark/70 mb-4 h-10">Soft, juicy dumplings with our secret spiced
-                                filling.</p>
-                            
-                        </div>
-                        <div
-                            class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
-                            <img src="gallery/kurkure-momos-main.jpg"
-                                class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm" alt="Kurkure Momos">
-                            <h3
-                                class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
-                                Kurkure Momos</h3>
-                            <p class="text-sm text-dark/70 mb-4 h-10">Extra crispy, spicy coating for the ultimate
-                                crunch.</p>
-                            
-                        </div>
-                        <div
-                            class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
-                            <img src="gallery/gravymosmos.png"
-                                class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm" alt="Gravy Momos">
-                            <h3
-                                class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
-                                Gravy Momos</h3>
-                            <p class="text-sm text-dark/70 mb-4 h-10">Tossed in our rich, signature spicy gravy.</p>
-                            
-                        </div>
-                    </div>
-
-                    <!-- Fast Food Tab -->
-                    <div id="tab-food" class="tab-pane hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div
-                            class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
-                            <img src="gallery/menu_burger_1776338384163.png"
-                                class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm" alt="Burger">
-                            <h3
-                                class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
-                                Classic Burgers</h3>
-                            <p class="text-sm text-dark/70 mb-4 h-10">Crispy patties, fresh veggies, and secret sauce.
-                            </p>
-                            
-                        </div>
-                        <div
-                            class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
-                            <img src="gallery/menu_pizza_1776338420506.png"
-                                class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm" alt="Pizza">
-                            <h3
-                                class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
-                                Gourmet Pizza</h3>
-                            <p class="text-sm text-dark/70 mb-4 h-10">Fresh dough, rich cheese, and premium toppings.
-                            </p>
-                            
-                        </div>
-                        <div
-                            class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
-                            <img src="gallery/Pizza_Rolls.png"
-                                class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm" alt="Starters">
-                            <h3
-                                class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
-                                Snacks & Rolls</h3>
-                            <p class="text-sm text-dark/70 mb-4 h-10">Perfect crispy bites to accompany your chai.</p>
-                            
-                        </div>
-                    </div>
-
-                    <!-- Noodles & Maggie Tab -->
-                    <div id="tab-rice" class="tab-pane hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div
-                            class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
-                            <img src="gallery/menu_noodles_1776338435672.png"
-                                class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm" alt="Noodles">
-                            <h3
-                                class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
-                                Spicy Noodles</h3>
-                            <p class="text-sm text-dark/70 mb-4 h-10">Wok-tossed noodles with fresh veggies & garlic.
-                            </p>
-                            
-                        </div>
-                        <div
-                            class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
-                            <img src="gallery/Lem_Chaai_Maggie.png"
-                                class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm" alt="Maggie">
-                            <h3
-                                class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
-                                Masala Maggie</h3>
-                            <p class="text-sm text-dark/70 mb-4 h-10">Street-style comfort food elevated with extra
-                                magic.</p>
-                            
-                        </div>
-                        <div
-                            class="bg-cream border border-masala/20 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
-                            <img src="gallery/201288abe7d371390b83c1bdda9fe436.jpg"
-                                class="w-full h-40 object-cover rounded-xl mb-4 shadow-sm" alt="Fried Rice">
-                            <h3
-                                class="font-serif text-xl font-bold text-terracotta mb-2 group-hover:text-masala transition-colors">
-                                Fried Rice</h3>
-                            <p class="text-sm text-dark/70 mb-4 h-10">Aromatic rice tossed with perfectly seasoned
-                                veggies.</p>
-                            
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="mt-16 text-center">
-                    <a href="menu.html"
-                        class="inline-flex items-center gap-3 bg-terracotta hover:bg-masala text-cream px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-terracotta/30 transition-transform hover:-translate-y-1">
-                        View Full Menu <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div> <!-- End inner content wrapper -->
-        </div> <!-- End floating island wrapper -->
-    </section>
 
     <!-- Order Online / Delivery Banner -->
     <section id="order" class="bg-dark text-cream relative overflow-hidden py-16">
@@ -662,9 +517,98 @@
     <!-- Footer Container -->
     <div id="footer-container"></div>
 
+        <!-- Floating Cart Button -->
+    <button id="floating-cart-btn" class="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 bg-masala hover:bg-terracotta text-cream p-4 rounded-full shadow-2xl transition-transform hover:-translate-y-2 z-40 group">
+        <i class="fa-solid fa-cart-shopping text-2xl"></i>
+        <span id="cart-badge" class="absolute -top-2 -right-2 bg-cream text-terracotta font-bold text-xs w-6 h-6 rounded-full flex items-center justify-center shadow-md border-2 border-masala border-opacity-50">0</span>
+    </button>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar-overlay" class="fixed inset-0 bg-dark/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-cream z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-6 border-b border-masala/20 flex justify-between items-center bg-cardbg">
+            <h2 class="font-serif text-2xl font-bold text-terracotta"><i class="fa-solid fa-basket-shopping mr-2"></i> Your Order</h2>
+            <button id="close-cart-btn" class="text-dark/50 hover:text-terracotta text-2xl transition-colors"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div id="cart-items-container" class="flex-grow overflow-y-auto p-6 space-y-4">
+            <!-- Cart Items will be injected here via JS -->
+            <div class="text-center text-dark/50 italic mt-10" id="empty-cart-msg">Your cart is empty.</div>
+        </div>
+        
+        <div class="border-t border-masala/20 bg-cardbg p-6 space-y-4">
+            <div class="flex justify-between items-center font-bold text-lg text-dark">
+                <span>Total Amount:</span>
+                <span id="cart-total-price" class="text-masala">₹0</span>
+            </div>
+            <button id="whatsapp-checkout-btn" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white p-4 rounded-xl font-bold text-lg transition-transform shadow-lg hover:-translate-y-1 flex items-center justify-center gap-3">
+                <i class="fa-brands fa-whatsapp text-2xl"></i> Checkout via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Options Modal -->
+    <div id="options-modal-overlay" class="fixed inset-0 bg-dark/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="options-modal" class="bg-cardbg w-full max-w-sm rounded-[32px] shadow-2xl border border-terracotta/20 overflow-hidden transform scale-95 transition-transform duration-300">
+            <div class="bg-terracotta/10 p-6 flex justify-between items-start border-b border-masala/10">
+                <div>
+                    <h3 id="modal-item-name" class="font-sans font-bold text-xl text-dark mb-1">Item Name</h3>
+                    <p class="text-xs text-masala/70 font-semibold tracking-wider uppercase">Customize Order</p>
+                </div>
+                <button id="close-modal-btn" class="text-dark/50 hover:text-terracotta bg-cream w-8 h-8 rounded-full shadow-sm flex items-center justify-center transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="p-6 space-y-6">
+                <!-- Size Options -->
+                <div id="size-options-container" class="space-y-3">
+                    <label class="block text-sm font-bold text-dark mb-2">Select Size</label>
+                    <div class="flex gap-4">
+                        <label class="flex-1 cursor-pointer group">
+                            <input type="radio" name="item_size" value="Half" class="peer hidden" checked>
+                            <div class="border-2 border-masala/20 rounded-xl p-3 text-center peer-checked:border-terracotta peer-checked:bg-terracotta/5 transition-all">
+                                <span class="block font-bold text-dark group-hover:text-terracotta" id="modal-label-half">Half</span>
+                                <span class="block text-sm text-masala font-semibold" id="modal-price-half">₹80</span>
+                            </div>
+                        </label>
+                        <label class="flex-1 cursor-pointer group">
+                            <input type="radio" name="item_size" value="Full" class="peer hidden">
+                            <div class="border-2 border-masala/20 rounded-xl p-3 text-center peer-checked:border-terracotta peer-checked:bg-terracotta/5 transition-all">
+                                <span class="block font-bold text-dark group-hover:text-terracotta" id="modal-label-full">Full</span>
+                                <span class="block text-sm text-masala font-semibold" id="modal-price-full">₹150</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Single Price Display -->
+                <div id="single-price-container" class="hidden font-bold text-lg text-masala text-center p-3 border-2 border-terracotta/20 bg-terracotta/5 rounded-xl">
+                    ₹0
+                </div>
+
+                <!-- Quantity Options -->
+                <div>
+                    <label class="block text-sm font-bold text-dark mb-3">Quantity</label>
+                    <div class="flex items-center justify-between bg-cream border border-masala/20 rounded-xl p-2 max-w-[150px] mx-auto shadow-inner">
+                        <button id="qty-minus" class="w-10 h-10 rounded-lg hover:bg-terracotta/10 text-terracotta flex items-center justify-center transition-colors font-bold text-xl"><i class="fa-solid fa-minus text-sm"></i></button>
+                        <span id="qty-display" class="font-bold text-dark text-lg w-10 text-center">1</span>
+                        <button id="qty-plus" class="w-10 h-10 rounded-lg bg-terracotta/10 hover:bg-terracotta text-terracotta hover:text-cream flex items-center justify-center transition-colors font-bold text-xl"><i class="fa-solid fa-plus text-sm"></i></button>
+                    </div>
+                </div>
+                
+                <button id="add-to-cart-confirm" class="w-full bg-masala hover:bg-terracotta text-cream p-4 rounded-xl font-bold transition-transform shadow-lg hover:-translate-y-1">
+                    Add to Order <span id="modal-total-btn-price" class="ml-2 bg-cream/20 px-2 py-1 rounded text-sm">₹0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Script -->
     <script src="components.js"></script>
     <script src="script.js"></script>
+    <script src="products.js"></script>
+    <script src="ui_components.js"></script>
+    <script src="app_ui.js"></script>
 </body>
 
 </html>
+
