@@ -84,6 +84,11 @@ class ComponentLoader {
             this.loadComponent('navbar', 'navbar-container'),
             this.loadComponent('footer', 'footer-container')
         ]);
+        
+        // Ensure cart UI updates after navbar is injected
+        if (typeof updateCartUI === 'function') {
+            updateCartUI();
+        }
     }
 }
 

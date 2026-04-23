@@ -64,11 +64,7 @@
     <!-- Footer Container -->
     <div id="footer-container"></div>
 
-    <!-- Floating Cart Button -->
-    <button id="floating-cart-btn" class="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 bg-masala hover:bg-terracotta text-cream p-4 rounded-full shadow-2xl transition-transform hover:-translate-y-2 z-40 group">
-        <i class="fa-solid fa-cart-shopping text-2xl"></i>
-        <span id="cart-badge" class="absolute -top-2 -right-2 bg-cream text-terracotta font-bold text-xs w-6 h-6 rounded-full flex items-center justify-center shadow-md border-2 border-masala border-opacity-50">0</span>
-    </button>
+
 
     <!-- Cart Sidebar -->
     <div id="cart-sidebar-overlay" class="fixed inset-0 bg-dark/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
@@ -84,6 +80,13 @@
         </div>
         
         <div class="border-t border-masala/20 bg-cardbg p-6 space-y-4">
+            <!-- Delivery Details Form -->
+            <div class="space-y-3 pb-4 border-b border-masala/10">
+                <input type="text" id="customer-name" placeholder="Your Name" class="w-full p-3 rounded-xl border border-masala/20 bg-white text-dark focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition-all shadow-inner placeholder:text-masala/40">
+                <textarea id="customer-address" placeholder="Delivery Address (Mandatory)" rows="2" class="w-full p-3 rounded-xl border border-masala/20 bg-white text-dark focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta transition-all shadow-inner placeholder:text-masala/40 resize-none"></textarea>
+                <p id="address-error" class="text-red-500 text-xs font-semibold hidden"><i class="fa-solid fa-circle-exclamation"></i> Please provide a delivery address.</p>
+            </div>
+            
             <div class="flex justify-between items-center font-bold text-lg text-dark">
                 <span>Total Amount:</span>
                 <span id="cart-total-price" class="text-masala">₹0</span>

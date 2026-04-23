@@ -18,7 +18,7 @@
             <!-- Right Actions -->
             <div class="flex items-center space-x-5 sm:space-x-6">
                 <!-- Search Icon -->
-                <button class="text-dark hover:text-terracotta text-xl transition-colors">
+                <button id="nav-search-btn" class="text-dark hover:text-terracotta text-xl transition-colors">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
@@ -28,10 +28,7 @@
                     <span id="nav-cart-badge" class="absolute -top-2 -right-2 bg-terracotta text-cream text-[11px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-md">0</span>
                 </button>
 
-                <!-- Desktop Menu Toggle (Optional Links) -->
-                <button id="desktop-menu-btn" class="hidden md:block text-dark hover:text-terracotta text-2xl transition-colors">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-terracotta text-2xl focus:outline-none">
@@ -51,3 +48,27 @@
                 class="mobile-link bg-masala text-center text-cream px-6 py-3 rounded-full font-semibold">Order Now</a>
         </div>
     </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="fixed inset-0 bg-white z-[100] hidden flex-col transition-opacity duration-300 opacity-0">
+        <!-- Header -->
+        <div class="px-4 py-4 md:py-6 border-b border-masala/10 flex items-center gap-4 bg-white shadow-sm z-10">
+            <button id="close-search-btn" class="text-masala hover:text-terracotta text-2xl transition-colors flex-shrink-0">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="relative flex-grow flex items-center max-w-3xl mx-auto w-full">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 text-masala/40"></i>
+                <input type="text" id="search-input" placeholder="Search for dishes, categories..." class="w-full bg-cardbg rounded-full py-3 pl-12 pr-10 text-lg text-dark focus:outline-none focus:ring-2 focus:ring-terracotta/50 transition-all shadow-inner" autocomplete="off">
+                <button id="clear-search-btn" class="absolute right-4 text-masala/40 hover:text-masala hidden transition-colors">
+                    <i class="fa-solid fa-circle-xmark text-lg"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Body / Results -->
+        <div class="flex-grow overflow-y-auto bg-[#F9F9F9] px-4 py-6">
+            <div class="max-w-3xl mx-auto h-full" id="search-results-container">
+                <!-- Default / Results injected here via JS -->
+            </div>
+        </div>
+    </div>

@@ -187,7 +187,6 @@ if (heroCarousel) {
 let cart = JSON.parse(localStorage.getItem('lemchaai_cart')) || [];
 
 // DOM Elements
-const floatingCartBtn = document.getElementById('floating-cart-btn');
 const cartBadge = document.getElementById('cart-badge');
 const navCartBtn = document.getElementById('nav-cart-btn');
 const navCartBadge = document.getElementById('nav-cart-badge');
@@ -226,10 +225,6 @@ function updateCartUI() {
     // Also update navbar cart badge if it exists (might be injected dynamically)
     const dynamicNavCartBadge = document.getElementById('nav-cart-badge');
     if(dynamicNavCartBadge) dynamicNavCartBadge.innerText = totalItems;
-    
-    if(floatingCartBtn) {
-        floatingCartBtn.classList.remove('hidden');
-    }
 
     // Render Sidebar Items
     if(cartItemsContainer) {
@@ -270,6 +265,18 @@ function updateCartUI() {
         
         if(cartTotalPrice) cartTotalPrice.innerText = '₹' + totalAmt;
     }
+    
+    // Load saved address into the inputs if they exist
+    const customerNameInput = document.getElementById('customer-name');
+    const customerAddressInput = document.getElementById('customer-address');
+    if (customerNameInput && !customerNameInput.value) {
+        const savedName = localStorage.getItem('lemchaai_name');
+        if(savedName) customerNameInput.value = savedName;
+    }
+    if (customerAddressInput && !customerAddressInput.value) {
+        const savedAddress = localStorage.getItem('lemchaai_address');
+        if(savedAddress) customerAddressInput.value = savedAddress;
+    }
 }
 
 window.updateItemQuantity = function(index, delta) {
@@ -299,7 +306,7 @@ if (cartSidebar && cartSidebarOverlay) {
         cartSidebar.classList.remove('translate-x-full');
     };
 
-    if (floatingCartBtn) floatingCartBtn.addEventListener('click', openCart);
+    window.openCart = openCart; // Expose globally to use in modal confirmation
     
     // Delegate event for dynamically loaded nav-cart-btn
     document.addEventListener('click', (e) => {
@@ -426,7 +433,7 @@ if (qtyPlus && qtyMinus && confirmAddBtn && closeModalBtn) {
         saveCart();
         closeOptionsModal();
         
-        if (floatingCartBtn) floatingCartBtn.click();
+        if (window.openCart) window.openCart();
     });
 }
 
@@ -447,6 +454,33 @@ function checkoutWhatsapp() {
         return;
     }
     
+    // Address Validation
+    const customerNameInput = document.getElementById('customer-name');
+    const customerAddressInput = document.getElementById('customer-address');
+    const addressError = document.getElementById('address-error');
+    
+    let nameStr = "";
+    let addressStr = "";
+    
+    if (customerNameInput && customerAddressInput) {
+        nameStr = customerNameInput.value.trim();
+        addressStr = customerAddressInput.value.trim();
+        
+        if (!addressStr) {
+            customerAddressInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+            if(addressError) addressError.classList.remove('hidden');
+            customerAddressInput.focus();
+            return;
+        } else {
+            customerAddressInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+            if(addressError) addressError.classList.add('hidden');
+            
+            // Save to localStorage for future
+            localStorage.setItem('lemchaai_name', nameStr);
+            localStorage.setItem('lemchaai_address', addressStr);
+        }
+    }
+    
     let message = "Hello LemChaai! I would like to place an order:\n\n";
     let total = 0;
     
@@ -457,7 +491,15 @@ function checkoutWhatsapp() {
         total += itemTotal;
     });
     
-    message += `\nTotal Amount: ₹${total}\n\nPlease confirm my order.`;
+    message += `\nTotal Amount: ₹${total}\n`;
+    
+    if (addressStr) {
+        message += `\n*Delivery Details:*\n`;
+        if(nameStr) message += `Name: ${nameStr}\n`;
+        message += `Address: ${addressStr}\n`;
+    }
+    
+    message += `\nPlease confirm my order.`;
     
     const waUrl = `https://wa.me/919953975300?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
@@ -477,3 +519,272 @@ if (placeOrderBtn) {
 
 // Init
 updateCartUI();
+
+// ==========================================
+// SEARCH FUNCTIONALITY
+// ==========================================
+
+let searchDebounceTimeout;
+
+function openSearchOverlay() {
+    const overlay = document.getElementById('search-overlay');
+    const searchInput = document.getElementById('search-input');
+    
+    if (overlay) {
+        overlay.classList.remove('hidden');
+        // Small delay to allow display:block to apply before animating opacity
+        setTimeout(() => {
+            overlay.classList.remove('opacity-0');
+            if (searchInput) {
+                searchInput.focus();
+            }
+            renderDefaultSearchState();
+        }, 10);
+    }
+}
+
+function closeSearchOverlay() {
+    const overlay = document.getElementById('search-overlay');
+    if (overlay) {
+        overlay.classList.add('opacity-0');
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+        }, 300);
+    }
+}
+
+function renderDefaultSearchState() {
+    const container = document.getElementById('search-results-container');
+    if (!container) return;
+    
+    const recentSearches = JSON.parse(localStorage.getItem('lemchaai_recent_searches')) || [];
+    let html = '';
+    
+    // 1. Recent Searches
+    if (recentSearches.length > 0) {
+        html += `
+            <div class="mb-8">
+                <h3 class="text-xs font-bold text-masala/60 uppercase tracking-wider mb-4">Recent Searches</h3>
+                <div class="flex flex-wrap gap-2">
+                    ${recentSearches.map(term => `
+                        <button class="recent-search-tag bg-white border border-masala/10 px-4 py-2.5 rounded-full text-sm font-semibold text-dark shadow-sm hover:border-terracotta hover:text-terracotta transition-colors" data-term="${term}">
+                            <i class="fa-solid fa-clock-rotate-left mr-1.5 opacity-50"></i> ${term}
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    // 2. Category Shortcuts
+    const shortcuts = ['Momos', 'Noodles', 'Burger', 'Beverages'];
+    html += `
+        <div class="mb-8">
+            <h3 class="text-xs font-bold text-masala/60 uppercase tracking-wider mb-4">Categories</h3>
+            <div class="flex flex-wrap gap-2">
+                ${shortcuts.map(cat => `
+                    <button class="category-shortcut-tag bg-terracotta/10 border border-terracotta/20 px-5 py-2.5 rounded-full text-sm font-bold text-terracotta shadow-sm hover:bg-terracotta hover:text-white transition-colors" data-term="${cat}">
+                        ${cat}
+                    </button>
+                `).join('')}
+            </div>
+        </div>
+    `;
+    
+    // 3. Popular Items
+    const popularItems = (window.productsData || []).filter(p => p.isPopular).slice(0, 5);
+    if (popularItems.length > 0) {
+        html += `
+            <div>
+                <h3 class="text-xs font-bold text-masala/60 uppercase tracking-wider mb-4">Popular Right Now</h3>
+                <div class="space-y-3">
+                    ${popularItems.map(item => generateSearchResultCard(item)).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    container.innerHTML = html;
+}
+
+function handleSearchInput(e) {
+    const term = e.target.value.trim();
+    const clearBtn = document.getElementById('clear-search-btn');
+    
+    if (clearBtn) {
+        if (term.length > 0) {
+            clearBtn.classList.remove('hidden');
+        } else {
+            clearBtn.classList.add('hidden');
+        }
+    }
+    
+    clearTimeout(searchDebounceTimeout);
+    searchDebounceTimeout = setTimeout(() => {
+        if (term.length === 0) {
+            renderDefaultSearchState();
+        } else {
+            performSearch(term);
+        }
+    }, 200);
+}
+
+function performSearch(term) {
+    const container = document.getElementById('search-results-container');
+    if (!container || !window.productsData) return;
+    
+    const query = term.toLowerCase();
+    
+    const results = window.productsData.map(product => {
+        const name = product.name.toLowerCase();
+        const subCat = product.subCategory ? product.subCategory.toLowerCase() : '';
+        const cat = product.category ? product.category.toLowerCase() : '';
+        
+        let score = 0;
+        
+        if (name === query) score = 100;
+        else if (name.startsWith(query)) score = 50;
+        else if (name.includes(query)) score = 30;
+        else if (subCat.includes(query)) score = 20;
+        else if (cat.includes(query)) score = 10;
+        
+        return { product, score };
+    }).filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score);
+      
+    if (results.length === 0) {
+        container.innerHTML = `
+            <div class="text-center py-16">
+                <i class="fa-solid fa-magnifying-glass text-5xl text-masala/20 mb-4"></i>
+                <h3 class="text-xl font-bold text-dark mb-2">No items found</h3>
+                <p class="text-base text-masala/60">Try searching for something else like "momos" or "burger"</p>
+            </div>
+        `;
+    } else {
+        container.innerHTML = `
+            <h3 class="text-xs font-bold text-masala/60 uppercase tracking-wider mb-4">Search Results (${results.length})</h3>
+            <div class="space-y-3">
+                ${results.map(item => generateSearchResultCard(item.product)).join('')}
+            </div>
+        `;
+        
+        // Save to recent searches if query is 3+ chars
+        if (term.length >= 3) {
+            saveRecentSearch(term);
+        }
+    }
+}
+
+function saveRecentSearch(term) {
+    let recentSearches = JSON.parse(localStorage.getItem('lemchaai_recent_searches')) || [];
+    
+    // Remove if exists to push to front
+    recentSearches = recentSearches.filter(t => t.toLowerCase() !== term.toLowerCase());
+    recentSearches.unshift(term);
+    
+    // Keep only last 5
+    if (recentSearches.length > 5) {
+        recentSearches.pop();
+    }
+    
+    localStorage.setItem('lemchaai_recent_searches', JSON.stringify(recentSearches));
+}
+
+function generateSearchResultCard(product) {
+    // Generate price string and add-to-cart attributes based on single vs half/full
+    let priceDisplay = product.price;
+    let btnAttributes = '';
+    
+    const cleanName = product.name.replace(/"/g, '&quot;');
+    
+    if (product.price && product.price.includes('/')) {
+        const parts = product.price.split('/');
+        priceDisplay = `${parts[0].trim()} / ${parts[1].trim()}`;
+        btnAttributes = `data-name="${cleanName}" data-price-half="${parts[0].trim()}" data-price-full="${parts[1].trim()}"`;
+    } else {
+        btnAttributes = `data-name="${cleanName}" data-price-single="${product.price}"`;
+    }
+
+    return `
+        <div class="flex justify-between items-center bg-white p-3 md:p-4 rounded-2xl shadow-sm border border-masala/10 hover:border-terracotta hover:shadow-md transition-all group">
+            <div class="flex gap-4 items-center">
+                <div class="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-cardbg rounded-xl overflow-hidden shadow-inner">
+                    <img src="${product.image}" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h4 class="font-bold text-dark text-base md:text-lg leading-tight group-hover:text-terracotta transition-colors">${product.name}</h4>
+                    <p class="text-xs md:text-sm font-medium text-masala/60 mt-0.5">${product.subCategory || product.category}</p>
+                    <p class="font-bold text-terracotta mt-1">₹${priceDisplay}</p>
+                </div>
+            </div>
+            <button class="add-to-cart-btn bg-terracotta/10 hover:bg-terracotta text-terracotta hover:text-cream px-4 py-2 md:px-6 md:py-3 rounded-xl text-sm font-bold transition-colors shadow-sm inline-flex items-center gap-2 flex-shrink-0" ${btnAttributes}>
+                <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">ADD</span>
+            </button>
+        </div>
+    `;
+}
+
+// Global Event Delegation for Search Elements
+document.addEventListener('click', (e) => {
+    // Close Search on Add to Cart so the user can see the Options Modal
+    const addBtn = e.target.closest('.add-to-cart-btn');
+    if (addBtn) {
+        const overlay = document.getElementById('search-overlay');
+        if (overlay && !overlay.classList.contains('hidden')) {
+            closeSearchOverlay();
+        }
+        // Do not return; let it bubble to trigger openOptionsModal in the other listener!
+    }
+
+    // Open Search
+    const searchBtn = e.target.closest('#nav-search-btn');
+    if (searchBtn) {
+        openSearchOverlay();
+        return;
+    }
+    
+    // Close Search
+    const closeBtn = e.target.closest('#close-search-btn');
+    if (closeBtn) {
+        closeSearchOverlay();
+        return;
+    }
+    
+    // Clear Search
+    const clearBtn = e.target.closest('#clear-search-btn');
+    if (clearBtn) {
+        const input = document.getElementById('search-input');
+        if (input) {
+            input.value = '';
+            input.focus();
+            handleSearchInput({ target: input });
+        }
+        return;
+    }
+    
+    // Recent Search Tag or Category Shortcut Click
+    const shortcutTag = e.target.closest('.recent-search-tag, .category-shortcut-tag');
+    if (shortcutTag) {
+        const term = shortcutTag.getAttribute('data-term');
+        const input = document.getElementById('search-input');
+        if (input) {
+            input.value = term;
+            handleSearchInput({ target: input }); // trigger search manually
+        }
+        return;
+    }
+});
+
+document.addEventListener('input', (e) => {
+    if (e.target.id === 'search-input') {
+        handleSearchInput(e);
+    }
+});
+
+// ESC to close search
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeSearchOverlay();
+    }
+});
+
