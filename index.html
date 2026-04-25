@@ -180,8 +180,10 @@
             <!-- Left Side: Dark Background with Text -->
             <div class="w-full md:w-1/2 bg-dark p-10 md:p-16 flex flex-col items-center justify-center text-center text-cream relative">
                 <!-- Icon placeholder -->
-                <div class="mb-6">
-                    <img src="gallery/logo.png" alt="LemChaai Logo" class="h-32 w-auto object-contain brightness-0 invert opacity-90">
+                <div class="mb-6 relative group inline-flex items-center justify-center">
+                    <!-- This div sits exactly behind the logo to provide a cream background for the transparent cup -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[65%] bg-cream rounded-[100%] z-0"></div>
+                    <img src="gallery/logo.png" alt="LemChaai Logo" class="h-24 sm:h-32 w-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-300 relative z-10">
                 </div>
                 <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-black tracking-wide mb-6 leading-[1.1] text-terracotta">
                     Flavorful Bites,<br>Made Just For You!
